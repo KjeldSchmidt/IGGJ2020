@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 namespace Interaction
 {
@@ -7,5 +8,6 @@ namespace Interaction
         void Highlight();
         void UnHighlight();
         void UpdatePosition(Vector2 pos);
+        List<ISnapable> GetSnapables();
     }
 }
