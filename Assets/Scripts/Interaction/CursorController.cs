@@ -12,6 +12,7 @@ namespace Interaction
         private SpriteRenderer _spriteRenderer;
         private Camera _mainCamera;
         private IDraggable _draggable;
+        private Vector2? _draggableOffset;
         private ISnappingController _snappingController;
 
         private void Awake()
@@ -64,8 +65,14 @@ namespace Interaction
         private void MouseDown()
         {
             if (_draggable == null) return;
-            
-            _draggable.GetBlockContainerTransform().position = transform.position;
+
+            if (_draggableOffset == null)
+            {
+                _draggableOffset = _draggable.GetBlockContainerTransform().position- transform.position;
+            }
+
+            Vector2? targetPos = transform.position + _draggableOffset;
+            _draggable.GetBlockContainerTransform().position = (Vector3) targetPos;
         }
     
         private void MouseUp()
@@ -73,6 +80,7 @@ namespace Interaction
             if (_draggable == null) return;
             
             _snappingController.TrySnapDraggable(_draggable);
+            _draggableOffset = null;
         }
 
     }
