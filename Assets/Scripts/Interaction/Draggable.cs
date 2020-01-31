@@ -32,6 +32,11 @@ namespace Interaction
             transform.position = pos;
         }
         
+        public Transform GetBlockContainerTransform()
+        {
+            return transform.parent;
+        }
+        
         public List<ISnapable> GetSnapables()
         {
             //Todo make pretty

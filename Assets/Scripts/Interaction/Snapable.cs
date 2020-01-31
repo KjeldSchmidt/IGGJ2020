@@ -13,9 +13,13 @@ namespace Interaction
         private Color _baseColor;
         private readonly Color _highlightColor = Color.black;
         private ISnapable _triggeredSnapable;
+
+        private bool snapped = false;
         
         public ISnapable GetTriggeredSnapable()
         {
+            if (snapped) return null;
+            
             return _triggeredSnapable;
         }
 
@@ -23,7 +27,13 @@ namespace Interaction
         {
             return transform;
         }
-        
+
+        public void SetSnapped()
+        {
+            snapped = true;
+            _spriteRenderer.color = _baseColor;
+        }
+
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
@@ -32,6 +42,8 @@ namespace Interaction
 
         private void OnTriggerEnter2D(Collider2D other)
         {
+            if (snapped) return;
+            
             ISnapable snapable = other.GetComponent<ISnapable>();
             if (snapable == null) return;
 
@@ -41,6 +53,8 @@ namespace Interaction
 
         private void OnTriggerExit2D(Collider2D other)
         {
+            if (snapped) return;
+            
             ISnapable snapable = other.GetComponent<ISnapable>();
             if (snapable == null) return;
 

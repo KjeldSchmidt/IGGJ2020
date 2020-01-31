@@ -6,5 +6,6 @@ namespace Interaction
     {
         ISnapable GetTriggeredSnapable();
         Transform GetTransform();
+        void SetSnapped();
     }
 }

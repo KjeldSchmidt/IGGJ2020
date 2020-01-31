@@ -9,5 +9,6 @@ namespace Interaction
         void UnHighlight();
         void UpdatePosition(Vector2 pos);
         List<ISnapable> GetSnapables();
+        Transform GetBlockContainerTransform();
     }
 }

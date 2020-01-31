@@ -9,30 +9,36 @@ namespace Interaction
 
         private SpriteRenderer _spriteRenderer;
         private Camera _mainCamera;
-        private List<IDraggable> _draggables = new List<IDraggable>();
+        private IDraggable _draggable;
 
         private void Awake()
         {
             _mainCamera = Camera.main;
             _spriteRenderer = GetComponent<SpriteRenderer>();
         }
-
-        private void OnTriggerEnter2D(Collider2D other)
+        
+        private void OnTriggerStay2D(Collider2D other)
         {
             IDraggable draggable = other.GetComponent<IDraggable>();
             if (draggable == null) return;
 
-           // draggable.Highlight();
-            _draggables.Add(draggable);
+            if (_draggable!= null && _draggable != draggable)
+            {
+                _draggable.UnHighlight();
+            }
+            
+            draggable.Highlight();
+            _draggable = draggable;
+            
         }
-    
+
         private void OnTriggerExit2D(Collider2D other)
         {
             IDraggable draggable = other.GetComponent<IDraggable>();
             if (draggable == null) return;
-
-         //   draggable.UnHighlight();
-            _draggables.Remove(draggable);
+            
+            _draggable?.UnHighlight();
+            _draggable = null;
         }
 
         private void Update()
@@ -53,25 +59,21 @@ namespace Interaction
 
         private void MouseDown()
         {
-            foreach (IDraggable draggable in _draggables)
-            {
-                draggable.UpdatePosition(transform.position);
-            }
+            if (_draggable == null) return;
+            
+            _draggable.GetBlockContainerTransform().position = transform.position;
         }
     
         private void MouseUp()
         {
-            foreach (IDraggable draggable in _draggables)
-            {
-                bool snapped = TrySnapDraggable(draggable);
-                if (snapped) return;
-            }
-            _draggables.Clear();
+            if (_draggable == null) return;
+            
+            TrySnapDraggable(_draggable);
         }
         
         //ToDo move into another script
 
-        private bool TrySnapDraggable(IDraggable draggable)
+        private void TrySnapDraggable(IDraggable draggable)
         {
             List<ISnapable> snapables = draggable.GetSnapables();
             foreach (ISnapable snapable in snapables)
@@ -80,11 +82,9 @@ namespace Interaction
                 if (targetSnapable != null)
                 {
                     SnapDraggable(snapable, targetSnapable);
-                    return true;
+                    return;
                 }
             }
-
-            return false;
         }
 
         private void SnapDraggable(ISnapable selected, ISnapable target)
@@ -101,6 +101,15 @@ namespace Interaction
             //Debug.Log("targetPos: " + targetPosition);
             
             selectedParentTransform.position = targetPosition;
+            
+            //Move to target BlockContainer
+            GameObject selectedContainer = selectedParentTransform.parent.gameObject;
+            selectedParentTransform.parent = targetTransform.parent.parent;
+            Destroy(selectedContainer);
+            
+            //Deactivates used Snapables
+            selected.SetSnapped();
+            target.SetSnapped();
         }
         
     }
