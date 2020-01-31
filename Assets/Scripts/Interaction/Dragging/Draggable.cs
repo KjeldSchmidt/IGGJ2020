@@ -27,10 +27,6 @@ namespace Interaction.Dragging
             _spriteRenderer.color = _baseColor;
         }
 
-        public void MouseDown() { }
-
-        public void MouseUp() { }
-
         public void UpdatePosition(Vector2 pos)
         {
             transform.position = pos;

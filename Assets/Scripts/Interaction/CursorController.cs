@@ -1,5 +1,4 @@
-﻿using System.Collections.Generic;
-using Interaction.Dragging;
+﻿using Interaction.Dragging;
 using Interaction.Snapping;
 using UnityEngine;
 
@@ -11,9 +10,8 @@ namespace Interaction
 
         private SpriteRenderer _spriteRenderer;
         private Camera _mainCamera;
-        private ISnapable _snapable;
+        //ToDo Use DropableController instead similar to SnappingController by handing in OnTrigger & Mouse events
         private IDraggable _draggable;
-        private Vector2? _draggableOffset;
         private ISnappingController _snappingController;
 
         private void Awake()
@@ -36,6 +34,8 @@ namespace Interaction
             draggable.Highlight();
             _draggable = draggable;
             
+            _snappingController.OnTriggerStay2D(other);
+            
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -45,7 +45,8 @@ namespace Interaction
             
             _draggable?.UnHighlight();
             _draggable = null;
-            _draggableOffset = null;
+            
+            _snappingController.OnTriggerExit2D(other);
         }
 
         private void Update()
@@ -53,7 +54,6 @@ namespace Interaction
             UpdateMousePosition();
 
             if(Input.GetMouseButton(0)) MouseDown();
-            if(Input.GetMouseButtonDown(0)) _draggable.MouseDown();
             if(Input.GetMouseButtonUp(0)) MouseUp();
         }
 
@@ -66,30 +66,16 @@ namespace Interaction
         private void MouseDown()
         {
             if (_draggable == null) return;
-
-            _draggable.UpdatePosition( transform.position );
             
-            if (typeof(ISnapable) == _draggable.GetType())
-            {
-                ISnapable snapable = (ISnapable) _draggable;
-                
-                if (_draggableOffset == null)
-                {
-                    _draggableOffset = snapable.GetBlockContainerTransform().position- transform.position;
-                }
-
-                Vector2? targetPos = transform.position + _draggableOffset;
-                snapable.GetBlockContainerTransform().position = (Vector3) targetPos;
-            }
+            //ToDo Call for Dropables only
+            //_draggable.UpdatePosition(mousePosition);
+            
+            _snappingController.MouseDown(transform);
         }
     
         private void MouseUp()
         {
-            if (_draggable == null) return;
-            
-            if (typeof(ISnapable) == _draggable.GetType()) _snappingController.TrySnapDraggable((ISnapable)_draggable);
-            _draggableOffset = null;
-            _draggable.MouseUp();
+            _snappingController.MouseUp();
         }
 
     }

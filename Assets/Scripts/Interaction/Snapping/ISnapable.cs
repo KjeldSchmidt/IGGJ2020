@@ -6,7 +6,7 @@ namespace Interaction.Snapping
 {
     public interface ISnapable : IDraggable
     {
-        List<ISnapPoint> GetSnapables();
+        List<ISnapPoint> GetSnapPoints();
         Transform GetBlockContainerTransform();
     }
 }

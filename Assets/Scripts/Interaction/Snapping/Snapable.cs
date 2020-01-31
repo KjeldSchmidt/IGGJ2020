@@ -42,7 +42,7 @@ namespace Interaction.Snapping
             return transform.parent;
         }
         
-        public List<ISnapPoint> GetSnapables()
+        public List<ISnapPoint> GetSnapPoints()
         {
             //Todo make pretty
             return new List<ISnapPoint>(snapables);
