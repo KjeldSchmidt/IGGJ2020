@@ -6,18 +6,18 @@ namespace Interaction.Snapping
     [RequireComponent(typeof(SpriteRenderer))]
     public class SnapPoint: MonoBehaviour, ISnapPoint
     {
-       // [SerializeField] private List<Transform> snapTransforms;
-
+        [SerializeField] private Sprite snappedSprite;
+        
         private SpriteRenderer _spriteRenderer;
-        private Color _baseColor;
+        private Sprite _baseSprite;
         private readonly Color _highlightColor = Color.black;
         private ISnapPoint _triggeredSnapPoint;
 
-        private bool snapped = false;
+        private bool _snapped = false;
         
         public ISnapPoint GetTriggeredSnapable()
         {
-            if (snapped) return null;
+            if (_snapped) return null;
             
             return _triggeredSnapPoint;
         }
@@ -29,35 +29,35 @@ namespace Interaction.Snapping
 
         public void SetSnapped()
         {
-            snapped = true;
-            _spriteRenderer.color = _baseColor;
+            _snapped = true;
+            _spriteRenderer.sprite = snappedSprite;
         }
 
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();
-            _baseColor = _spriteRenderer.color;
+            _baseSprite = _spriteRenderer.sprite;
         }
-
+        
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (snapped) return;
+            if (_snapped) return;
             
             ISnapPoint snapPoint = other.GetComponent<ISnapPoint>();
             if (snapPoint == null) return;
 
-            _spriteRenderer.color = _highlightColor;
+            _spriteRenderer.sprite = snappedSprite;
             _triggeredSnapPoint = snapPoint;
         }
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (snapped) return;
+            if (_snapped) return;
             
             ISnapPoint snapPoint = other.GetComponent<ISnapPoint>();
             if (snapPoint == null) return;
 
-            _spriteRenderer.color = _baseColor;
+            _spriteRenderer.sprite = _baseSprite;
             _triggeredSnapPoint = null;
         }
     }

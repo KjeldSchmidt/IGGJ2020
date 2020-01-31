@@ -121,6 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051a32008e8f3464eaf40fa35e1e5624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snappedSprite: {fileID: 21300000, guid: b41cf21c36d6f7941ab520f8d2a5ace3, type: 3}
 --- !u!1 &2668913698703399345
 GameObject:
   m_ObjectHideFlags: 0
@@ -242,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 051a32008e8f3464eaf40fa35e1e5624, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snappedSprite: {fileID: 21300000, guid: b41cf21c36d6f7941ab520f8d2a5ace3, type: 3}
 --- !u!1 &5480205862250280871
 GameObject:
   m_ObjectHideFlags: 0
