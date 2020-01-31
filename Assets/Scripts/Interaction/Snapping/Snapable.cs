@@ -1,37 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using Interaction.Dragging;
+using UnityEngine;
 
 namespace Interaction.Snapping
 {
-    [RequireComponent(typeof(Collider2D))]
     [RequireComponent(typeof(SpriteRenderer))]
-    public class Snapable: MonoBehaviour, ISnapable
+    public class Snapable: Draggable, ISnapable
     {
-       // [SerializeField] private List<Transform> snapTransforms;
-
+        [SerializeField] private List<SnapPoint> snapables;
         private SpriteRenderer _spriteRenderer;
         private Color _baseColor;
-        private readonly Color _highlightColor = Color.black;
-        private ISnapable _triggeredSnapable;
-
-        private bool snapped = false;
         
-        public ISnapable GetTriggeredSnapable()
-        {
-            if (snapped) return null;
-            
-            return _triggeredSnapable;
-        }
-
-        public Transform GetTransform()
-        {
-            return transform;
-        }
-
-        public void SetSnapped()
-        {
-            snapped = true;
-            _spriteRenderer.color = _baseColor;
-        }
 
         private void Awake()
         {
@@ -39,26 +18,34 @@ namespace Interaction.Snapping
             _baseColor = _spriteRenderer.color;
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        public void Highlight()
         {
-            if (snapped) return;
-            
-            ISnapable snapable = other.GetComponent<ISnapable>();
-            if (snapable == null) return;
-
-            _spriteRenderer.color = _highlightColor;
-            _triggeredSnapable = snapable;
+            _spriteRenderer.color = Color.black;
         }
 
-        private void OnTriggerExit2D(Collider2D other)
+        public void UnHighlight()
         {
-            if (snapped) return;
-            
-            ISnapable snapable = other.GetComponent<ISnapable>();
-            if (snapable == null) return;
-
             _spriteRenderer.color = _baseColor;
-            _triggeredSnapable = null;
+        }
+
+        public void MouseDown() { }
+
+        public void MouseUp() { }
+
+        public void UpdatePosition(Vector2 pos)
+        {
+            transform.position = pos;
+        }
+        
+        public Transform GetBlockContainerTransform()
+        {
+            return transform.parent;
+        }
+        
+        public List<ISnapPoint> GetSnapables()
+        {
+            //Todo make pretty
+            return new List<ISnapPoint>(snapables);
         }
     }
 }

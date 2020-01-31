@@ -7,21 +7,21 @@ namespace Interaction.Snapping
 {
     class SnappingController: ISnappingController
     {
-        public void TrySnapDraggable(IDraggable draggable)
+        public void TrySnapDraggable(ISnapable snapable)
         {
-            List<ISnapable> snapables = draggable.GetSnapables();
-            foreach (ISnapable snapable in snapables)
+            List<ISnapPoint> snapPoints = snapable.GetSnapables();
+            foreach (ISnapPoint snapPoint in snapPoints)
             {
-                ISnapable targetSnapable = snapable.GetTriggeredSnapable();
-                if (targetSnapable != null)
+                ISnapPoint targetSnapPoint = snapPoint.GetTriggeredSnapable();
+                if (targetSnapPoint != null)
                 {
-                    SnapDraggable(snapable, targetSnapable);
+                    SnapDraggable(snapPoint, targetSnapPoint);
                     return;
                 }
             }
         }
 
-        private void SnapDraggable(ISnapable selected, ISnapable target)
+        private void SnapDraggable(ISnapPoint selected, ISnapPoint target)
         {
             //ToDo check for left/right/up/down pos?
             Transform targetTransform = target.GetTransform();

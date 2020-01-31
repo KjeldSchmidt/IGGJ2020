@@ -8,8 +8,8 @@ namespace Interaction.Dragging
     {
         void Highlight();
         void UnHighlight();
+        void MouseDown();
+        void MouseUp();
         void UpdatePosition(Vector2 pos);
-        List<ISnapable> GetSnapables();
-        Transform GetBlockContainerTransform();
     }
 }

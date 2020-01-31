@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using Interaction.Dragging;
+using UnityEngine;
 
 namespace Interaction.Snapping
 {
-    public interface ISnapable
+    public interface ISnapable : IDraggable
     {
-        ISnapable GetTriggeredSnapable();
-        Transform GetTransform();
-        void SetSnapped();
+        List<ISnapPoint> GetSnapables();
+        Transform GetBlockContainerTransform();
     }
 }

@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using Interaction;
+using Interaction.Dragging;
+using Interaction.Snapping;
 using UnityEngine;
 
 namespace Abilities
@@ -23,6 +26,16 @@ namespace Abilities
         public void UpdatePosition(Vector2 pos)
         {
             transform.position = pos;
+        }
+
+        public List<ISnapPoint> GetSnapables()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Transform GetBlockContainerTransform()
+        {
+            throw new NotImplementedException();
         }
 
         public void MouseUp()

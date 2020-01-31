@@ -11,6 +11,7 @@ namespace Interaction
 
         private SpriteRenderer _spriteRenderer;
         private Camera _mainCamera;
+        private ISnapable _snapable;
         private IDraggable _draggable;
         private Vector2? _draggableOffset;
         private ISnappingController _snappingController;
@@ -40,27 +41,20 @@ namespace Interaction
         private void OnTriggerExit2D(Collider2D other)
         {
             IDraggable draggable = other.GetComponent<IDraggable>();
-            if (draggable == null) return;
+            if ( draggable == null) return;
             
             _draggable?.UnHighlight();
             _draggable = null;
+            _draggableOffset = null;
         }
 
         private void Update()
         {
             UpdateMousePosition();
 
-            if (Input.GetMouseButtonDown(0))
-            {
-                foreach (IDraggable draggable in _draggables)
-                {
-                    draggable.MouseDown();
-                }
-            }
-            if(Input.GetMouseButton(0))
-                MouseDown();
-            if(Input.GetMouseButtonUp(0))
-                MouseUp();
+            if(Input.GetMouseButton(0)) MouseDown();
+            if(Input.GetMouseButtonDown(0)) _draggable.MouseDown();
+            if(Input.GetMouseButtonUp(0)) MouseUp();
         }
 
         private void UpdateMousePosition()
@@ -73,20 +67,27 @@ namespace Interaction
         {
             if (_draggable == null) return;
 
-            if (_draggableOffset == null)
+            _draggable.UpdatePosition( transform.position );
+            
+            if (typeof(ISnapable) == _draggable.GetType())
             {
-                _draggableOffset = _draggable.GetBlockContainerTransform().position- transform.position;
-            }
+                ISnapable snapable = (ISnapable) _draggable;
+                
+                if (_draggableOffset == null)
+                {
+                    _draggableOffset = snapable.GetBlockContainerTransform().position- transform.position;
+                }
 
-            Vector2? targetPos = transform.position + _draggableOffset;
-            _draggable.GetBlockContainerTransform().position = (Vector3) targetPos;
+                Vector2? targetPos = transform.position + _draggableOffset;
+                snapable.GetBlockContainerTransform().position = (Vector3) targetPos;
+            }
         }
     
         private void MouseUp()
         {
             if (_draggable == null) return;
             
-            _snappingController.TrySnapDraggable(_draggable);
+            if (typeof(ISnapable) == _draggable.GetType()) _snappingController.TrySnapDraggable((ISnapable)_draggable);
             _draggableOffset = null;
             _draggable.MouseUp();
         }
