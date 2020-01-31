@@ -38,7 +38,14 @@ namespace Interaction
         private void Update()
         {
             UpdateMousePosition();
-            
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                foreach (IDraggable draggable in _draggables)
+                {
+                    draggable.MouseDown();
+                }
+            }
             if(Input.GetMouseButton(0))
                 MouseDown();
             if(Input.GetMouseButtonUp(0))
@@ -61,6 +68,10 @@ namespace Interaction
     
         private void MouseUp()
         {
+            foreach (IDraggable draggable in _draggables)
+            {
+                draggable.MouseUp();
+            }
             _draggables.Clear();
         }
     }

@@ -6,6 +6,8 @@ namespace Interaction
     {
         void Highlight();
         void UnHighlight();
+        void MouseDown();
+        void MouseUp();
         void UpdatePosition(Vector2 pos);
     }
 }
