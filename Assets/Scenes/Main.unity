@@ -128,16 +128,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4559241089791535493, guid: 4f012aaae156c49408a1d46ad080c85f,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4559241089809454911, guid: 4f012aaae156c49408a1d46ad080c85f,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.01
-      objectReference: {fileID: 0}
     - target: {fileID: 4559241089814345339, guid: 4f012aaae156c49408a1d46ad080c85f,
         type: 3}
       propertyPath: m_Name
@@ -197,31 +187,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4559241090330825835, guid: 4f012aaae156c49408a1d46ad080c85f,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4559241090330825835, guid: 4f012aaae156c49408a1d46ad080c85f,
-        type: 3}
-      propertyPath: m_LinearDrag
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4559241090416551517, guid: 4f012aaae156c49408a1d46ad080c85f,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4559241090443362852, guid: 4f012aaae156c49408a1d46ad080c85f,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.01
-      objectReference: {fileID: 0}
-    - target: {fileID: 4559241091174350914, guid: 4f012aaae156c49408a1d46ad080c85f,
-        type: 3}
-      propertyPath: m_AngularDrag
-      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4f012aaae156c49408a1d46ad080c85f, type: 3}
@@ -547,6 +512,8 @@ MonoBehaviour:
   ragDollCount: 400
   rectangleOrigin: {x: 0, y: 16}
   rectangleFinish: {x: 20, y: 700}
+  scaleRange: {x: 0.5, y: 1.6}
+  startVelocityRange: {x: -5, y: 5}
 --- !u!4 &1148009713
 Transform:
   m_ObjectHideFlags: 0
@@ -964,7 +931,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0.01, z: 0.01, w: 0}
+    border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1, y: 1}
     newSize: {x: 1.01, y: 1.01}
