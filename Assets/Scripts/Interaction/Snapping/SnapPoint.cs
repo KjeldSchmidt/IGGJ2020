@@ -54,7 +54,8 @@ namespace Interaction.Snapping
             if (snapPoint == null) return;
 
             if (snapPoint.Snapped) return;
-
+            if (!AreOppositeDirections(snapDirection, snapPoint.GetSnapDirection())) return;
+            
             _spriteRenderer.sprite = snappedSprite;
             _triggeredSnapPoint = snapPoint;
         }
@@ -69,5 +70,15 @@ namespace Interaction.Snapping
             _spriteRenderer.sprite = _baseSprite;
             _triggeredSnapPoint = null;
         }
+        
+        private bool AreOppositeDirections(Directions dir1, Directions dir2)
+        {
+            if (dir1 == Directions.UP && dir2 == Directions.DOWN) return true;
+            if (dir1 == Directions.DOWN && dir2 == Directions.UP) return true;
+            if (dir1 == Directions.LEFT && dir2 == Directions.RIGHT) return true;
+            if (dir1 == Directions.RIGHT && dir2 == Directions.LEFT) return true;
+            return false;
+        }
+
     }
 }
