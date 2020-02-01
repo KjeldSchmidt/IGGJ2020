@@ -14,7 +14,6 @@ namespace Abilities
 
         public void OnMouseDown()
         {
-            Debug.Log("trying to add ability");
             var source = _startButton.GetActiveAbilitySource();
             if (source != null)
             {
