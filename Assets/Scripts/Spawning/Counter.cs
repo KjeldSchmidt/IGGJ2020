@@ -10,11 +10,15 @@ namespace Spawning
         public void IncreaseCounter()
         {
             if (_count >= 100) return;
-            
-            _count++;
-            int displayCount = (_count * 2);
-            if (displayCount > 100) displayCount = 100;
-            textMeshCounter.text = displayCount.ToString();
+
+            _count += 2;
+            if (_count > 100) _count = 100;
+            textMeshCounter.text = _count.ToString();
+        }
+        
+        public int GetCount()
+        {
+            return _count;
         }
     }
 }

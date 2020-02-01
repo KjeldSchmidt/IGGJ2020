@@ -10,18 +10,10 @@ namespace Interaction.Snapping
     public class Snapable: Draggable, ISnapable
     {
         [SerializeField] private List<SnapPoint> snapables;
-        private SpriteRenderer _spriteRenderer;
-        private Color _baseColor;
-        
+
         public Transform Transform => transform;
         public IShapeContainer ShapeContainer => transform.parent.GetComponent<IShapeContainer>();
-        
-        private void Awake()
-        {
-            _spriteRenderer = GetComponent<SpriteRenderer>();
-            _baseColor = _spriteRenderer.color;
-        }
-        
+
         public override void Highlight()
         {
         }

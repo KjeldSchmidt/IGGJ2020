@@ -24,7 +24,7 @@ namespace Spawning
         public void SetDead()
         {
             deadEyesSpriteRenderer.enabled = true;
-            _counter.IncreaseCounter();
+            _counter?.IncreaseCounter();
         }
 
         public void SetCounter(Counter counter)
