@@ -61,7 +61,8 @@ namespace Interaction
 
         private void UpdateMousePosition()
         {
-            Vector2 pos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            Vector3 pos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
+            pos.z = -9;
             transform.position = pos;
         }
 
