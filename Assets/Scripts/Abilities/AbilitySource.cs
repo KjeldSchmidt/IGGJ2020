@@ -20,7 +20,7 @@ namespace Abilities
         public void OnMouseDown()
         {
             transform.localScale = Vector3.one * 1.2f;
-            _startButton.ActivateAbilitySource( this );
+            _startButton.ActivateAbilitySource( this ); // If this ability is already activated, activating it again will deactivate it 
         }
 
         public void Deactivate()
