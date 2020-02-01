@@ -17,6 +17,7 @@ namespace Interaction
 
         private void Awake()
         {
+            Cursor.visible = false;
             _mainCamera = Camera.main;
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _snappingController = new SnappingController();
@@ -54,7 +55,15 @@ namespace Interaction
         {
             UpdateMousePosition();
 
-            if(Input.GetMouseButtonDown(0)) AssignAbility.AssignAbilityRaycast( _mainCamera, Input.mousePosition );
+            if (Input.GetMouseButtonDown(0))
+            {
+                //rotate on button down
+                var rot = transform.eulerAngles;
+                rot.z = 90;
+                transform.eulerAngles = rot;
+                
+                AssignAbility.AssignAbilityRaycast( _mainCamera, Input.mousePosition );
+            }
             if(Input.GetMouseButton(0)) MouseDown();
             if(Input.GetMouseButtonUp(0)) MouseUp();
         }
@@ -78,6 +87,11 @@ namespace Interaction
     
         private void MouseUp()
         {
+            //reset rotate on button up
+            var rot = transform.eulerAngles;
+            rot.z = 45;
+            transform.eulerAngles = rot;
+            
             _snappingController.MouseUp();
         }
 
