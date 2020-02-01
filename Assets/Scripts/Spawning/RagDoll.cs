@@ -13,12 +13,27 @@ namespace Spawning
         [SerializeField] private Vector2 startVelocityRange;
         [SerializeField] private List<Rigidbody2D> rigidbodies;
 
+        [SerializeField] private float toolChance;
+        [SerializeField] private List<GameObject> toolPrefabs;
+        [SerializeField] private List<Transform> toolSlots;
+        
         private void Awake()
         {
+            SetTools();
             SetLinearDrag();
             SetAngularDrag();
             AddVelocity();
             AddTorque();
+        }
+
+        private void SetTools()
+        {
+            foreach (Transform toolSlotTransform in toolSlots)
+            {
+                if (Random.Range(0, 2) < toolChance) continue;
+                GameObject prefab = toolPrefabs[Random.Range(0, toolPrefabs.Count)];
+                Instantiate(prefab, toolSlotTransform);
+            }
         }
 
         public void SetLinearDrag()
