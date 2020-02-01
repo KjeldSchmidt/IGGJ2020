@@ -121,11 +121,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.3
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_UseAutoMass: 1
+  m_Mass: 0.358675
+  m_LinearDrag: 1
+  m_AngularDrag: 0.01
+  m_GravityScale: 0.4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -142,11 +142,11 @@ HingeJoint2D:
   serializedVersion: 4
   m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 4559241091174350914}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
+  m_BreakForce: 200
+  m_BreakTorque: 200
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.076629385, y: 0.9951973}
-  m_ConnectedAnchor: {x: 0.63282293, y: -0.7998133}
+  m_ConnectedAnchor: {x: 0.63282293, y: -0.7998123}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -276,11 +276,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.2
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_UseAutoMass: 1
+  m_Mass: 0.358675
+  m_LinearDrag: 1
+  m_AngularDrag: 0.01
+  m_GravityScale: 0.4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -297,11 +297,11 @@ HingeJoint2D:
   serializedVersion: 4
   m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 4559241091174350914}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
+  m_BreakForce: 200
+  m_BreakTorque: 200
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.0766387, y: 1.0954502}
-  m_ConnectedAnchor: {x: 0.72450846, y: 0.81358194}
+  m_ConnectedAnchor: {x: 0.7245092, y: 0.81358147}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -539,11 +539,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.4
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_UseAutoMass: 1
+  m_Mass: 1.5393803
+  m_LinearDrag: 1
+  m_AngularDrag: 0.01
+  m_GravityScale: 0.4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -560,11 +560,11 @@ HingeJoint2D:
   serializedVersion: 4
   m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 4559241091174350914}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
+  m_BreakForce: 200
+  m_BreakTorque: 200
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.013579369, y: -0.6653719}
-  m_ConnectedAnchor: {x: -0.040235166, y: 0.78462815}
+  m_ConnectedAnchor: {x: -0.040235166, y: 0.7846279}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -694,11 +694,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.3
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_UseAutoMass: 1
+  m_Mass: 0.358675
+  m_LinearDrag: 1
+  m_AngularDrag: 0.01
+  m_GravityScale: 0.4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -715,11 +715,11 @@ HingeJoint2D:
   serializedVersion: 4
   m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 4559241091174350914}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
+  m_BreakForce: 200
+  m_BreakTorque: 200
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.0059501347, y: 0.9951973}
-  m_ConnectedAnchor: {x: -0.5894689, y: -0.7998133}
+  m_ConnectedAnchor: {x: -0.5894689, y: -0.7998123}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -849,11 +849,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.2
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_UseAutoMass: 1
+  m_Mass: 0.358675
+  m_LinearDrag: 1
+  m_AngularDrag: 0.01
+  m_GravityScale: 0.4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -870,11 +870,11 @@ HingeJoint2D:
   serializedVersion: 4
   m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 4559241091174350914}
-  m_BreakForce: Infinity
-  m_BreakTorque: Infinity
+  m_BreakForce: 200
+  m_BreakTorque: 200
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.0766387, y: 1.0954502}
-  m_ConnectedAnchor: {x: -0.72450846, y: 0.7864206}
+  m_ConnectedAnchor: {x: -0.72450846, y: 0.7864189}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -1003,11 +1003,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 0.8
+  m_UseAutoMass: 1
+  m_Mass: 0.87483376
   m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_AngularDrag: 0.01
+  m_GravityScale: 0.4
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
