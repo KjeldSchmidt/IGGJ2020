@@ -15,7 +15,6 @@ namespace Interaction.Snapping
         private ISnapPoint _triggeredSnapPoint;
 
         public bool Snapped { get; private set; }
-        public ISnapable Snapable => transform.parent.GetComponent<ISnapable>();
 
         public Directions GetSnapDirection()
         {

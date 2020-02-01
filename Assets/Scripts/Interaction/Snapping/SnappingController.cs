@@ -62,8 +62,6 @@ namespace Interaction.Snapping
             _snapable = null;
         }
         
-        
-
         private void TrySnap(ISnapable snapable)
         {
             List<ISnapPoint> snapPoints = snapable.GetSnapPoints();
@@ -92,7 +90,6 @@ namespace Interaction.Snapping
             Vector2 targetPosition = new Vector2(targetSnapPoint.position.x - xOffset, targetSnapPoint.position.y -yOffset);
 
             Vector2 startPos = selectedSnapable.position;
-           // selectedSnapable.position = targetPosition;
 
             float xOffsetTotal = startPos.x - targetPosition.x ;
             float yOffsetTotal = startPos.y - targetPosition.y;
@@ -101,12 +98,14 @@ namespace Interaction.Snapping
             foreach (ISnapable snapable in selectedShapeContainer.GetComponentsInChildren<ISnapable>())
             {
                 Transform shape = snapable.Transform;
-                shape.parent = targetShapeContainer;  
-                
-               // if (snapable == selectedSnapable.GetComponent<ISnapable>()) continue;
-                shape.position = new Vector2(shape.position.x - xOffsetTotal, shape.position.y -yOffsetTotal);
-              //  shape.transform.position = new Vector3(shape.transform.position.x - xOffset, shape.transform.position.y - yOffset);
+                shape.parent = targetShapeContainer;
+
+                Vector3 position = shape.position;
+                position = new Vector2(position.x - xOffsetTotal, position.y -yOffsetTotal);
+                shape.position = position;
             }
+            
+            //Destroy old Container
             selectedShapeContainer.GetComponent<IShapeContainer>().Destroy();
             
             //Deactivates used Snapables

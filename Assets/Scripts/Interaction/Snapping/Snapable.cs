@@ -22,17 +22,6 @@ namespace Interaction.Snapping
             _baseColor = _spriteRenderer.color;
         }
 
-        //Todo remove
-        public void Highlight()
-        {
-        //    _spriteRenderer.color = Color.black;
-        }
-
-        public void UnHighlight()
-        {
-        //    _spriteRenderer.color = _baseColor;
-        }
-
         public void UpdatePosition(Vector2 pos)
         {
             transform.position = pos;
