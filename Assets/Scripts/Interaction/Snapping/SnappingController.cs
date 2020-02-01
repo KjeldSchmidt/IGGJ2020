@@ -71,7 +71,7 @@ namespace Interaction.Snapping
             foreach (ISnapPoint snapPoint in snapPoints)
             {
                 ISnapPoint targetSnapPoint = snapPoint.GetTriggeredSnapable();
-                if (targetSnapPoint != null)
+                if (targetSnapPoint != null && snapPoint.GetTransform().parent.parent != targetSnapPoint.GetTransform().parent.parent)
                 {
                     Snapsnapable(snapPoint, targetSnapPoint);
                     return;
