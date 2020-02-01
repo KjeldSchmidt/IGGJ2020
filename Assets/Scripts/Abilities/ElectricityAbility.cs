@@ -1,14 +1,13 @@
-﻿using System;
-using Interaction.Containers;
+﻿using Interaction.Containers;
 using UnityEngine;
 
 namespace Abilities
 {
-    public class MoveSidewaysAbility : AbstractAbility
+    public class ElectricityAbility : AbstractAbility
     {
         private bool _active;
         private ShapeContainer _shapeContainer;
-        private Vector3 _movementDirection = Vector3.right;
+        private Vector3 _movementDirection = Vector3.up;
         private float speed = 0.2f;
         
         public override void StartUsingAbility()
@@ -22,12 +21,5 @@ namespace Abilities
             _active = false;
         }
 
-        public void Update()
-        {
-            if (_active)
-            {
-                //_shapeContainer.position += _movementDirection * (Time.deltaTime * speed);   
-            }
-        }
     }
 }

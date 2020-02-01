@@ -12,10 +12,14 @@ namespace Abilities
 
             if (!hit) return;
             AbilityTarget target = hit.collider.gameObject.GetComponent<AbilityTarget>();
+            
             if (target == null) return;
-            Debug.Log("AbilityTarget found");
+            
             var startButton = GameObject.Find("StartButton").GetComponent<StartButton>();
-            var source = startButton.GetActiveAbilitySource().abilityPrefab;
+            var source = startButton.GetActiveAbilitySource()?.abilityPrefab;
+            
+            if (source == null) return;
+            
             target.AssignAbility( source );
         }
     }

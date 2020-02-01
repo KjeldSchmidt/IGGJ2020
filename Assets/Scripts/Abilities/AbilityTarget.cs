@@ -6,6 +6,7 @@ namespace Abilities
     public class AbilityTarget : MonoBehaviour
     {
         private StartButton _startButton;
+        public bool requiresElectricity = false;
         public int maxAbilities = 1;
         private int remainingAbilities;
 
