@@ -1,5 +1,56 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1148009711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1148009713}
+  - component: {fileID: 1148009712}
+  m_Layer: 0
+  m_Name: RagDollSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1148009713
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148009711}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -10, y: -4, z: 9}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 857139967537466725}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1148009712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148009711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10a5f86b0fdb493c9f4b7367e85e0ca6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ragDollPrefab: {fileID: 4559241089814345339, guid: 4f012aaae156c49408a1d46ad080c85f,
+    type: 3}
+  ragDollCount: 200
+  rectangleOrigin: {x: 0, y: 16}
+  rectangleFinish: {x: 20, y: 300}
+  scaleRange: {x: 0.2, y: 0.5}
+  startVelocityRange: {x: -5, y: 5}
+  counter: {fileID: 8205979710687054229}
 --- !u!1 &294961322405344743
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,7 +127,7 @@ GameObject:
   - component: {fileID: 8205979710899407733}
   - component: {fileID: 8205979710899407734}
   - component: {fileID: 8205979710899407735}
-  m_Layer: 4
+  m_Layer: 0
   m_Name: RectangleFrame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -154,7 +205,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2992534275330091375}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -180,7 +231,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2992534275330091375}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -206,7 +257,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2992534275330091375}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -232,7 +283,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2992534275330091375}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -961,6 +1012,7 @@ Transform:
   - {fileID: 8205979710530129045}
   - {fileID: 4274554172133821653}
   - {fileID: 8205979710260374981}
+  - {fileID: 1148009713}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -991,6 +1043,7 @@ MonoBehaviour:
   textMeshes:
   - {fileID: 7587824183698726714}
   startAnimation: {fileID: 4614013978744318916}
+  ragDollSpawner: {fileID: 1148009712}
 --- !u!61 &4614013978744318919
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1146,7 +1199,7 @@ GameObject:
   - component: {fileID: 2834654401016566499}
   - component: {fileID: 6647193537969255067}
   - component: {fileID: 7587824183698726714}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Text_=
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1239,7 +1292,7 @@ GameObject:
   - component: {fileID: 8205979709756432519}
   - component: {fileID: 8205979709756432517}
   - component: {fileID: 8205979709756432516}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Text_%
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1331,7 +1384,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8205979710200387849}
   - component: {fileID: 8205979710200387854}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ButtonBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1412,7 +1465,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8205979710260374981}
   - component: {fileID: 8205979710260374986}
-  m_Layer: 0
+  - component: {fileID: 8205979710687054229}
+  m_Layer: 2
   m_Name: Count
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1485,6 +1539,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &8205979710687054229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205979710260374980}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ea2989ea15a43419041cf6c202fce23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshCounter: {fileID: 8205979710371677528}
 --- !u!1 &8205979710371677530
 GameObject:
   m_ObjectHideFlags: 0
@@ -1496,7 +1563,7 @@ GameObject:
   - component: {fileID: 8205979710371677531}
   - component: {fileID: 8205979710371677529}
   - component: {fileID: 8205979710371677528}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Text_DeadCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1588,7 +1655,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8205979710530129045}
   - component: {fileID: 8205979710530129044}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Skull
   m_TagString: Untagged
   m_Icon: {fileID: 0}

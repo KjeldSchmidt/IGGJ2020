@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Spawning;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -10,6 +11,7 @@ namespace Interaction
         [SerializeField] private List<SpriteRenderer> spriteRenderers;
         [SerializeField] private List<TextMesh> textMeshes;
         [SerializeField] private Animation startAnimation;
+        [SerializeField] private RagDollSpawner ragDollSpawner;
         
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -34,6 +36,7 @@ namespace Interaction
         {
             
             startAnimation.Play();
+            ragDollSpawner.SpawnRagDolls();
         }
 
         private void OnTriggerExit2D(Collider2D other)

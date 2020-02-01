@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
 namespace Spawning
@@ -16,6 +17,20 @@ namespace Spawning
         [SerializeField] private float toolChance;
         [SerializeField] private List<GameObject> toolPrefabs;
         [SerializeField] private List<Transform> toolSlots;
+
+        [SerializeField] private SpriteRenderer deadEyesSpriteRenderer;
+
+        private Counter _counter;
+        public void SetDead()
+        {
+            deadEyesSpriteRenderer.enabled = true;
+            _counter.IncreaseCounter();
+        }
+
+        public void SetCounter(Counter counter)
+        {
+            _counter = counter;
+        }
         
         private void Awake()
         {
@@ -36,7 +51,7 @@ namespace Spawning
             }
         }
 
-        public void SetLinearDrag()
+        private void SetLinearDrag()
         {
             foreach (Rigidbody2D rb in rigidbodies)
             {
@@ -44,14 +59,14 @@ namespace Spawning
             }
         }
 
-        public void SetAngularDrag()
+        private void SetAngularDrag()
         {
             foreach (Rigidbody2D rb in rigidbodies)
             {
                 rb.angularDrag = Random.Range(startAngularDragRange.x, startAngularDragRange.y);
             } 
         }
-        public void AddVelocity()
+        private void AddVelocity()
         {
             foreach (Rigidbody2D rb in rigidbodies)
             {
@@ -63,7 +78,7 @@ namespace Spawning
             }
 
         }
-        public void AddTorque()
+        private void AddTorque()
         {
             foreach (Rigidbody2D rb in rigidbodies)
             {

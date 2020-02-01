@@ -253,7 +253,7 @@ Transform:
   - {fileID: 8376550704554645543}
   - {fileID: 5684317669373530171}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &799618156
 PrefabInstance:
@@ -474,62 +474,86 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3e97dbf2a63b1df40a87c1dd8cbf276a, type: 3}
+--- !u!1001 &996687399
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4559241089814345339, guid: 4f012aaae156c49408a1d46ad080c85f,
+        type: 3}
+      propertyPath: m_Name
+      value: RagDoll
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559241089814345339, guid: 4f012aaae156c49408a1d46ad080c85f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559241089814345340, guid: 4f012aaae156c49408a1d46ad080c85f,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 15.797761
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559241089814345340, guid: 4f012aaae156c49408a1d46ad080c85f,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.8205907
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559241089814345340, guid: 4f012aaae156c49408a1d46ad080c85f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559241089814345340, guid: 4f012aaae156c49408a1d46ad080c85f,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559241089814345340, guid: 4f012aaae156c49408a1d46ad080c85f,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559241089814345340, guid: 4f012aaae156c49408a1d46ad080c85f,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559241089814345340, guid: 4f012aaae156c49408a1d46ad080c85f,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559241089814345340, guid: 4f012aaae156c49408a1d46ad080c85f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559241089814345340, guid: 4f012aaae156c49408a1d46ad080c85f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559241089814345340, guid: 4f012aaae156c49408a1d46ad080c85f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4559241089814345340, guid: 4f012aaae156c49408a1d46ad080c85f,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4f012aaae156c49408a1d46ad080c85f, type: 3}
 --- !u!4 &1140343909 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 397740527813659811, guid: 3e97dbf2a63b1df40a87c1dd8cbf276a,
     type: 3}
   m_PrefabInstance: {fileID: 951065017}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1148009711
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1148009713}
-  - component: {fileID: 1148009712}
-  m_Layer: 0
-  m_Name: RagDollSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1148009712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148009711}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10a5f86b0fdb493c9f4b7367e85e0ca6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ragDollPrefab: {fileID: 4559241089814345339, guid: 4f012aaae156c49408a1d46ad080c85f,
-    type: 3}
-  ragDollCount: 200
-  rectangleOrigin: {x: 0, y: 16}
-  rectangleFinish: {x: 20, y: 300}
-  scaleRange: {x: 0.2, y: 0.5}
-  startVelocityRange: {x: -5, y: 5}
---- !u!4 &1148009713
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1148009711}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1337535468 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6817044475519206924, guid: faa27f7f840095241a1bd52c5d3b5c1b,
@@ -753,6 +777,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2139925487, guid: 2bbfcfb0dce489140b8da90d26a68512, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 598469420029004875, guid: 2bbfcfb0dce489140b8da90d26a68512,
         type: 3}
       propertyPath: m_Name
@@ -796,7 +824,7 @@ PrefabInstance:
     - target: {fileID: 598469420029004983, guid: 2bbfcfb0dce489140b8da90d26a68512,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 598469420029004983, guid: 2bbfcfb0dce489140b8da90d26a68512,
         type: 3}
@@ -1184,6 +1212,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1148009712, guid: 6f786b7203f81e542ab2b1da8f86a7df, type: 3}
+      propertyPath: ragDollCount
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 1148009712, guid: 6f786b7203f81e542ab2b1da8f86a7df, type: 3}
+      propertyPath: rectangleFinish.y
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 857139967537466725, guid: 6f786b7203f81e542ab2b1da8f86a7df,
         type: 3}
       propertyPath: m_LocalPosition.x
