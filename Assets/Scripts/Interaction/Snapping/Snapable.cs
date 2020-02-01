@@ -45,7 +45,8 @@ namespace Interaction.Snapping
         public List<ISnapPoint> GetSnapPoints()
         {
             //Todo make pretty
-            return new List<ISnapPoint>(snapables);
+            //return new List<ISnapPoint>(snapables);
+            return null;
         }
     }
 }
