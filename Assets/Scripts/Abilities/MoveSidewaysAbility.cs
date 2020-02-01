@@ -1,4 +1,5 @@
 ﻿using System;
+using Interaction.Containers;
 using UnityEngine;
 
 namespace Abilities
@@ -6,13 +7,13 @@ namespace Abilities
     public class MoveSidewaysAbility : AbstractAbility
     {
         private bool _active;
-        private Transform _blockCollection;
+        private ShapeContainer _shapeContainer;
         private Vector3 _movementDirection = Vector3.right;
         private float speed = 0.2f;
         
         public override void StartUsingAbility()
         {
-            _blockCollection = transform.parent.parent;
+            _shapeContainer = transform.parent.parent.GetComponent<ShapeContainer>();
             _active = true;
         }
 
@@ -25,7 +26,7 @@ namespace Abilities
         {
             if (_active)
             {
-                _blockCollection.position += _movementDirection * (Time.deltaTime * speed);   
+                //_shapeContainer.position += _movementDirection * (Time.deltaTime * speed);   
             }
         }
     }

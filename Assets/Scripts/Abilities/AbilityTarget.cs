@@ -14,6 +14,7 @@ namespace Abilities
 
         public void OnMouseDown()
         {
+            Debug.Log("Target clicked!");
             var source = _startButton.GetActiveAbilitySource();
             if (source != null)
             {

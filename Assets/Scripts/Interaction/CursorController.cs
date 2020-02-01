@@ -1,4 +1,5 @@
-﻿using Interaction.Dragging;
+﻿using Abilities;
+using Interaction.Dragging;
 using Interaction.Snapping;
 using UnityEngine;
 
@@ -53,6 +54,7 @@ namespace Interaction
         {
             UpdateMousePosition();
 
+            if(Input.GetMouseButtonDown(0)) AssignAbility.AssignAbilityRaycast( _mainCamera, Input.mousePosition );
             if(Input.GetMouseButton(0)) MouseDown();
             if(Input.GetMouseButtonUp(0)) MouseUp();
         }
