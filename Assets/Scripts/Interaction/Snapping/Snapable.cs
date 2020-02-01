@@ -13,6 +13,7 @@ namespace Interaction.Snapping
         private SpriteRenderer _spriteRenderer;
         private Color _baseColor;
         
+        public Transform Transform => transform;
         public IShapeContainer ShapeContainer => transform.parent.GetComponent<IShapeContainer>();
         
         private void Awake()

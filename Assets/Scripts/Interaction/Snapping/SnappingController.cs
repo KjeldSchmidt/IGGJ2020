@@ -90,14 +90,22 @@ namespace Interaction.Snapping
             float xOffset = selectedSnapPoint.position.x - selectedSnapable.position.x;
             float yOffset = selectedSnapPoint.position.y - selectedSnapable.position.y;
             Vector2 targetPosition = new Vector2(targetSnapPoint.position.x - xOffset, targetSnapPoint.position.y -yOffset);
-            selectedSnapable.position = targetPosition;
+
+            Vector2 startPos = selectedSnapable.position;
+           // selectedSnapable.position = targetPosition;
+
+            float xOffsetTotal = startPos.x - targetPosition.x ;
+            float yOffsetTotal = startPos.y - targetPosition.y;
             
             //Move to target BlockContainer
-            foreach (Transform shape in selectedShapeContainer)
+            foreach (ISnapable snapable in selectedShapeContainer.GetComponentsInChildren<ISnapable>())
             {
-                Debug.Log("drop " + shape.name + " from " + targetSnapable.parent + " to " + targetSnapPoint.parent.parent);
-             //   shape.transform.position = new Vector3(shape.transform.position.x - xOffset, shape.transform.position.y - yOffset);
-                shape.parent = targetShapeContainer;   
+                Transform shape = snapable.Transform;
+                shape.parent = targetShapeContainer;  
+                
+               // if (snapable == selectedSnapable.GetComponent<ISnapable>()) continue;
+                shape.position = new Vector2(shape.position.x - xOffsetTotal, shape.position.y -yOffsetTotal);
+              //  shape.transform.position = new Vector3(shape.transform.position.x - xOffset, shape.transform.position.y - yOffset);
             }
             selectedShapeContainer.GetComponent<IShapeContainer>().Destroy();
             
