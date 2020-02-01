@@ -54,12 +54,17 @@ namespace Interaction.Snapping
         {
             if (_snapable == null) return;
 
-            TrySnapsnapable(_snapable);
+            foreach (ISnapable snapable in _snapable.ShapeContainer.Transform.GetComponentsInChildren<ISnapable>())
+            {
+                TrySnap(snapable);
+            }
             _snapableOffset = null;
             _snapable = null;
         }
+        
+        
 
-        private void TrySnapsnapable(ISnapable snapable)
+        private void TrySnap(ISnapable snapable)
         {
             List<ISnapPoint> snapPoints = snapable.GetSnapPoints();
             foreach (ISnapPoint snapPoint in snapPoints)

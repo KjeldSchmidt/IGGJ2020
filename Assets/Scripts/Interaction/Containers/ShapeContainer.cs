@@ -4,10 +4,10 @@ namespace Interaction.Containers
 {
     public class ShapeContainer: MonoBehaviour, IShapeContainer
     {
+        public Transform Transform => transform;
+
         public void Destroy()
         {
-            Debug.Log(gameObject.name);
-            Debug.Log(transform);
             Destroy(gameObject);
         }
     }
