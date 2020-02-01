@@ -2,12 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using Abilities;
+using Interaction.Containers;
 using UnityEngine;
 
 public class StartButton : MonoBehaviour
 {
 
     private List<IAbility> _registeredAbilities = new List<IAbility>();
+    private List<IShapeContainer> _registeredShapeContainers = new List<IShapeContainer>();
     private AbilitySource _activeAbilitySource;
     
     private void OnMouseDown()
@@ -16,6 +18,12 @@ public class StartButton : MonoBehaviour
          {
              ability.StartUsingAbility();
          }
+
+         foreach (var shapeContainer in _registeredShapeContainers)
+         {
+             shapeContainer.StartLevel();
+         }
+         
     }
 
     public void RegisterAbility(IAbility ability)
@@ -39,5 +47,15 @@ public class StartButton : MonoBehaviour
     public AbilitySource GetActiveAbilitySource()
     {
         return _activeAbilitySource;
+    }
+
+    public void RegisterShapeContainer(ShapeContainer shapeContainer)
+    {
+        _registeredShapeContainers.Add(shapeContainer);
+    }
+    
+    public void UnregisterShapeContainer(ShapeContainer shapeContainer)
+    {
+        _registeredShapeContainers.Remove(shapeContainer);
     }
 }

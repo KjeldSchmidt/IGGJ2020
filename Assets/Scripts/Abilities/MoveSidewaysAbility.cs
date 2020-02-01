@@ -26,7 +26,7 @@ namespace Abilities
         {
             if (_active)
             {
-                //_shapeContainer.position += _movementDirection * (Time.deltaTime * speed);   
+                   
             }
         }
     }

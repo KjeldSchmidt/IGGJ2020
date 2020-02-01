@@ -6,5 +6,6 @@ namespace Interaction.Containers
     {
         Transform Transform { get; }
         void Destroy();
+        void StartLevel();
     }
 }
