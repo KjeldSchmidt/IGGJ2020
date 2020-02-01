@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Interaction.Dragging;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Interaction.Snapping
 {

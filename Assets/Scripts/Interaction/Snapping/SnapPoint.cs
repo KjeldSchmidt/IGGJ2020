@@ -6,6 +6,7 @@ namespace Interaction.Snapping
     [RequireComponent(typeof(SpriteRenderer))]
     public class SnapPoint: MonoBehaviour, ISnapPoint
     {
+        [SerializeField] private Directions snapDirection;
         [SerializeField] private Sprite snappedSprite;
         
         private SpriteRenderer _spriteRenderer;
@@ -13,11 +14,16 @@ namespace Interaction.Snapping
         private readonly Color _highlightColor = Color.black;
         private ISnapPoint _triggeredSnapPoint;
 
-        private bool _snapped = false;
-        
+        public bool Snapped { get; private set; }
+
+        public Directions GetSnapDirection()
+        {
+            return snapDirection;
+        }
+
         public ISnapPoint GetTriggeredSnapable()
         {
-            if (_snapped) return null;
+            if (Snapped) return null;
             
             return _triggeredSnapPoint;
         }
@@ -29,7 +35,7 @@ namespace Interaction.Snapping
 
         public void SetSnapped()
         {
-            _snapped = true;
+            Snapped = true;
             _spriteRenderer.sprite = snappedSprite;
         }
 
@@ -41,10 +47,12 @@ namespace Interaction.Snapping
         
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (_snapped) return;
+            if (Snapped) return;
             
             ISnapPoint snapPoint = other.GetComponent<ISnapPoint>();
             if (snapPoint == null) return;
+
+            if (snapPoint.Snapped) return;
 
             _spriteRenderer.sprite = snappedSprite;
             _triggeredSnapPoint = snapPoint;
@@ -52,7 +60,7 @@ namespace Interaction.Snapping
 
         private void OnTriggerExit2D(Collider2D other)
         {
-            if (_snapped) return;
+            if (Snapped) return;
             
             ISnapPoint snapPoint = other.GetComponent<ISnapPoint>();
             if (snapPoint == null) return;
