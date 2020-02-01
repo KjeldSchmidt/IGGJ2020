@@ -11,6 +11,7 @@ namespace Spawning
         [SerializeField] private Vector2 startAngularDragRange;
         [SerializeField] private Vector2 startTorqueRange;
         [SerializeField] private Vector2 startVelocityRange;
+        [SerializeField] private Vector2 massRange;
         [SerializeField] private List<Rigidbody2D> rigidbodies;
 
         [SerializeField] private float toolChance;
@@ -22,6 +23,7 @@ namespace Spawning
             SetTools();
             SetLinearDrag();
             SetAngularDrag();
+            SetMass();
             AddVelocity();
             AddTorque();
         }
@@ -33,6 +35,14 @@ namespace Spawning
                 if (Random.Range(0, 2) < toolChance) continue;
                 GameObject prefab = toolPrefabs[Random.Range(0, toolPrefabs.Count)];
                 Instantiate(prefab, toolSlotTransform);
+            }
+        }
+        
+        public void SetMass()
+        {
+            foreach (Rigidbody2D rb in rigidbodies)
+            {
+                rb.mass = Random.Range(massRange.x, massRange.y);
             }
         }
 

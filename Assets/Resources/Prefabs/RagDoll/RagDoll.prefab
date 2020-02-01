@@ -87,13 +87,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4559241089791535489}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.2, y: -1.814, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: 0.078179374, w: 0.99693936}
+  m_LocalPosition: {x: 0.336, y: -1.814, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 4559241089814345340}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 8.968}
 --- !u!212 &4559241089791535491
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -176,19 +176,19 @@ HingeJoint2D:
   serializedVersion: 4
   m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 4559241091174350914}
-  m_BreakForce: 200
-  m_BreakTorque: 200
+  m_BreakForce: 23
+  m_BreakTorque: 23
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -0.07030773, y: 3.3021111}
-  m_ConnectedAnchor: {x: 0.18242335, y: -0.9884722}
+  m_Anchor: {x: 0.037944794, y: 3.0495248}
+  m_ConnectedAnchor: {x: 0.22653031, y: -1.0594594}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -90
-    m_UpperAngle: 90
+    m_LowerAngle: -80
+    m_UpperAngle: 40
 --- !u!70 &87219980
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -233,7 +233,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4559241089809454907}
   m_LocalRotation: {x: -0, y: -0, z: 0.70710576, w: 0.7071079}
-  m_LocalPosition: {x: 1.25, y: 0.8, z: 0}
+  m_LocalPosition: {x: 1.296, y: 0.8, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 889179983}
@@ -322,19 +322,19 @@ HingeJoint2D:
   serializedVersion: 4
   m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 4559241091174350914}
-  m_BreakForce: 200
-  m_BreakTorque: 200
+  m_BreakForce: 20
+  m_BreakTorque: 20
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0.11493797, y: 3.3682902}
-  m_ConnectedAnchor: {x: 0.40792727, y: 0.828737}
+  m_Anchor: {x: 0.060813088, y: 3.0074623}
+  m_ConnectedAnchor: {x: 0.5441344, y: 0.8152056}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 180
+    m_LowerAngle: -129.49956
+    m_UpperAngle: 0
 --- !u!70 &87219976
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -400,16 +400,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cdcb06f19894e9d8728c70097051699, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startDragRange: {x: 0.001, y: 1.6}
+  startDragRange: {x: 0.001, y: 1}
   startAngularDragRange: {x: 0.001, y: 0.01}
-  startTorqueRange: {x: 0, y: 150}
+  startTorqueRange: {x: 0, y: 5}
   startVelocityRange: {x: -6, y: 6}
+  massRange: {x: 0.1, y: 5}
   rigidbodies:
   - {fileID: 4559241090330825835}
   - {fileID: 4559241090443362852}
   - {fileID: 4559241089809454911}
   - {fileID: 4559241091174350914}
   - {fileID: 4559241089791535493}
+  - {fileID: 4559241090416551517}
   toolChance: 0.5
   toolPrefabs:
   - {fileID: 3166731446072365589, guid: 007d10bf338364149a2178b218dcdcc9, type: 3}
@@ -631,8 +633,8 @@ HingeJoint2D:
   serializedVersion: 4
   m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 4559241091174350914}
-  m_BreakForce: 200
-  m_BreakTorque: 200
+  m_BreakForce: 25
+  m_BreakTorque: 25
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: -0.013579369, y: -0.6653719}
   m_ConnectedAnchor: {x: -0.013579369, y: 1.0056281}
@@ -642,7 +644,7 @@ HingeJoint2D:
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: 0
+    m_LowerAngle: -20
     m_UpperAngle: 20
 --- !u!1 &4559241090416551513
 GameObject:
@@ -671,13 +673,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4559241090416551513}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2, y: -1.814, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0.057034537, w: 0.9983722}
+  m_LocalPosition: {x: -0.265, y: -1.814, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children: []
   m_Father: {fileID: 4559241089814345340}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -6.5390005}
 --- !u!212 &4559241090416551515
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -760,19 +762,19 @@ HingeJoint2D:
   serializedVersion: 4
   m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 4559241091174350914}
-  m_BreakForce: 200
-  m_BreakTorque: 200
+  m_BreakForce: 20
+  m_BreakTorque: 20
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: 0.005949974, y: 3.3021111}
-  m_ConnectedAnchor: {x: -0.19851255, y: -0.9884722}
+  m_Anchor: {x: 0.06007576, y: 3.10365}
+  m_ConnectedAnchor: {x: -0.16171527, y: -1.0448459}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: -90
-    m_UpperAngle: 90
+    m_LowerAngle: -70
+    m_UpperAngle: 45
 --- !u!70 &87219981
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -817,7 +819,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4559241090443362863}
   m_LocalRotation: {x: 0, y: 0, z: -0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.25, y: 0.8, z: 0}
+  m_LocalPosition: {x: -1.313, y: 0.8, z: 0}
   m_LocalScale: {x: 0.25, y: 0.25, z: 1}
   m_Children:
   - {fileID: 1365639448}
@@ -906,19 +908,19 @@ HingeJoint2D:
   serializedVersion: 4
   m_EnableCollision: 1
   m_ConnectedRigidBody: {fileID: 4559241091174350914}
-  m_BreakForce: 200
-  m_BreakTorque: 200
+  m_BreakForce: 23
+  m_BreakTorque: 23
   m_AutoConfigureConnectedAnchor: 1
-  m_Anchor: {x: -0.042338125, y: 3.4551616}
-  m_ConnectedAnchor: {x: -0.3862095, y: 0.81058455}
+  m_Anchor: {x: 0.029829644, y: 3.0762818}
+  m_ConnectedAnchor: {x: -0.54392934, y: 0.79254246}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
     m_MaximumMotorForce: 10000
   m_UseLimits: 1
   m_AngleLimits:
-    m_LowerAngle: 0
-    m_UpperAngle: 180
+    m_LowerAngle: -167.83519
+    m_UpperAngle: 32.6861
 --- !u!70 &87219977
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
