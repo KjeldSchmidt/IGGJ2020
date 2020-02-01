@@ -6,23 +6,20 @@ namespace Abilities
     public class AbilityTarget : MonoBehaviour
     {
         private StartButton _startButton;
+        public int maxAbilities = 1;
+        private int remainingAbilities;
 
-        private void Awake()
+        public void Start()
         {
-            _startButton = GameObject.Find("StartButton").GetComponent<StartButton>();
+            remainingAbilities = maxAbilities;
         }
 
-        public void OnMouseDown()
-        {
-            Debug.Log("Target clicked!");
-            var source = _startButton.GetActiveAbilitySource();
-            if (source != null)
-            {
-                Instantiate(
-                    _startButton.GetActiveAbilitySource().abilityPrefab,
-                    this.transform
-                );   
-            }
+        public bool AssignAbility( GameObject abilityPrefab )
+        { 
+            if (remainingAbilities == 0) return false;
+            Instantiate( abilityPrefab, transform );
+            remainingAbilities--;
+            return true;
         }
     }
 }

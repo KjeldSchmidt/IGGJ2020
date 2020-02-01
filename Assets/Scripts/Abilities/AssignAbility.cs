@@ -10,10 +10,13 @@ namespace Abilities
             Ray ray = camera.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray,Mathf.Infinity, ~(1 << 9));
 
-            if (hit)
-            {
-                Debug.Log(hit.transform.name);
-            }
+            if (!hit) return;
+            AbilityTarget target = hit.collider.gameObject.GetComponent<AbilityTarget>();
+            if (target == null) return;
+            Debug.Log("AbilityTarget found");
+            var startButton = GameObject.Find("StartButton").GetComponent<StartButton>();
+            var source = startButton.GetActiveAbilitySource().abilityPrefab;
+            target.AssignAbility( source );
         }
     }
 }
