@@ -410,6 +410,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8203641837547996401, guid: 7597324492a47bb4a9e03d92895968d3,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7597324492a47bb4a9e03d92895968d3, type: 3}
 --- !u!1001 &327591823
@@ -723,6 +728,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f5e988427a4c17953bbbae5d5dd86b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiresElectricity: 0
   maxAbilities: 1
 --- !u!1 &1784762598
 GameObject:
@@ -850,6 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14f5e988427a4c17953bbbae5d5dd86b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiresElectricity: 0
   maxAbilities: 1
 --- !u!4 &2119587909 stripped
 Transform:

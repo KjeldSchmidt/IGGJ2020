@@ -11,6 +11,7 @@ namespace Interaction.Containers
         public Transform Transform => transform;
         private StartButton _startButton;
         private bool _sufficientPower;
+        private Vector2 forces;
 
         public void Start()
         {
@@ -28,11 +29,11 @@ namespace Interaction.Containers
         {
             if (!_sufficientPower)
             {
-                // Show flashing electriccity symbols or something, idc
+                // Show flashing electricity symbols or something, idc
             }
             else
             {
-                GetComponent<Rigidbody2D>().AddForce(transform.up*10f);
+                GetComponent<Rigidbody2D>().AddForce( forces );
             }
         }
 
@@ -42,11 +43,18 @@ namespace Interaction.Containers
             AbilityTarget[] targets = GetComponentsInChildren<AbilityTarget>();
             foreach (var target in targets)
             {
+                if (!target.requiresElectricity) continue;
+                if (target.GetComponentsInChildren<IAbility>().Length == 0) continue;
                 powerNeeded++;
             }
             ElectricityAbility[] powerSources = GetComponentsInChildren<ElectricityAbility>();
 
             _sufficientPower = powerSources.Length >= powerNeeded;
+        }
+
+        public void RegisterForce( Vector2 force )
+        {
+            forces += force;
         }
     }
 }
