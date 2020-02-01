@@ -36,7 +36,7 @@ namespace Interaction.Containers
             {
                 Debug.Log("Starting container!");
                 print(forces);
-                GetComponent<Rigidbody2D>().AddForce( forces );
+                GetComponent<Rigidbody2D>().AddForce( forces * 10 );
             }
         }
 
