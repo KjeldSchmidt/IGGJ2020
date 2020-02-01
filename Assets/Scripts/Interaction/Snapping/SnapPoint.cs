@@ -11,7 +11,6 @@ namespace Interaction.Snapping
         
         private SpriteRenderer _spriteRenderer;
         private Sprite _baseSprite;
-        private readonly Color _highlightColor = Color.black;
         private ISnapPoint _triggeredSnapPoint;
 
         public bool Snapped { get; private set; }

@@ -30,8 +30,11 @@ namespace Interaction.Snapping
         {
             ISnapable snapable = other.GetComponent<ISnapable>();
             if ( snapable == null) return;
-            
+
             _snapable?.UnHighlight();
+
+            if (_snapable != snapable) return;
+            
             _snapable = null;
             _snapableOffset = null;
         }
