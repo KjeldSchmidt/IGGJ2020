@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Abilities
 {
-    public class FloatAbility : AbstractAbilty, IAbility
+    public class MoveUpwardsAbility : AbstractAbilty, IAbility
     {
         private bool _active;
         private Transform _blockCollection;
