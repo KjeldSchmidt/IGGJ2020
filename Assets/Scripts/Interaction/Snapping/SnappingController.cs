@@ -11,10 +11,12 @@ namespace Interaction.Snapping
 
         public void OnTriggerStay2D(Collider2D other)
         {
+            if (_snapable != null) return;
+            
             ISnapable snapable = other.GetComponent<ISnapable>();
             if (snapable == null) return;
 
-            if (_snapable!= null && _snapable != snapable)
+            if (_snapable != null && _snapable != snapable)
             {
                 _snapable.UnHighlight();
             }
@@ -54,6 +56,7 @@ namespace Interaction.Snapping
 
             TrySnapsnapable(_snapable);
             _snapableOffset = null;
+            _snapable = null;
         }
 
         private void TrySnapsnapable(ISnapable snapable)
