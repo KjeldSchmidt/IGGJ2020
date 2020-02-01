@@ -98,7 +98,10 @@ namespace Interaction.Snapping
             
             //Move to target BlockContainer
             IShapeContainer toDestroy = selectedParentTransform.parent.GetComponent<IShapeContainer>();
-            selectedParentTransform.parent = targetTransform.parent.parent;
+            foreach (Transform shape in selectedParentTransform.parent.GetComponentsInChildren<Transform>())
+            {
+                shape.parent = targetTransform.parent.parent;   
+            }
             toDestroy.Destroy();
             
             //Deactivates used Snapables
