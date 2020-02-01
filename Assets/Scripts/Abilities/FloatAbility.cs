@@ -3,11 +3,11 @@ using UnityEngine;
 
 namespace Abilities
 {
-    public class MoveSideways : AbstractAbilty, IAbility
+    public class FloatAbility : AbstractAbilty, IAbility
     {
         private bool _active;
         private Transform _blockCollection;
-        private Vector3 _movementDirection = Vector3.right;
+        private Vector3 _movementDirection = Vector3.up;
         private float speed = 0.2f;
         
         public override void StartUsingAbility()
