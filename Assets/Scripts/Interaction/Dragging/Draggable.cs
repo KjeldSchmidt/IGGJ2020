@@ -17,12 +17,12 @@ namespace Interaction.Dragging
             _baseColor = _spriteRenderer.color;
         }
 
-        public void Highlight()
+        public virtual void Highlight()
         {
             _spriteRenderer.color = Color.black;
         }
 
-        public void UnHighlight()
+        public virtual void UnHighlight()
         {
             _spriteRenderer.color = _baseColor;
         }

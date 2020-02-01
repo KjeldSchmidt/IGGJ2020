@@ -21,12 +21,15 @@ namespace Interaction.Snapping
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _baseColor = _spriteRenderer.color;
         }
-
-        public void UpdatePosition(Vector2 pos)
-        {
-            transform.position = pos;
-        }
         
+        public override void Highlight()
+        {
+        }
+
+        public override void UnHighlight()
+        {
+        }
+
         public Transform GetBlockContainerTransform()
         {
             return transform.parent;
@@ -35,8 +38,7 @@ namespace Interaction.Snapping
         public List<ISnapPoint> GetSnapPoints()
         {
             //Todo make pretty
-            //return new List<ISnapPoint>(snapables);
-            return null;
+            return new List<ISnapPoint>(snapables);
         }
     }
 }
