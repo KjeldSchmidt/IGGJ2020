@@ -2,7 +2,7 @@
 
 namespace Abilities
 {
-    public abstract class AbstractAbilty : MonoBehaviour, IAbility
+    public abstract class AbstractAbility : MonoBehaviour, IAbility
     {
         public void Start()
         {

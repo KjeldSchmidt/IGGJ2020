@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Abilities
 {
-    public class MoveSideways : AbstractAbilty, IAbility
+    public class MoveSidewaysAbility : AbstractAbility
     {
         private bool _active;
         private Transform _blockCollection;
@@ -29,5 +29,4 @@ namespace Abilities
             }
         }
     }
-   
 }

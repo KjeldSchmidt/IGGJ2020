@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Abilities
 {
-    public class MoveUpwardsAbility : AbstractAbilty, IAbility
+    public class MoveUpwardsAbility : AbstractAbility
     {
         private bool _active;
         private Transform _blockCollection;
@@ -29,5 +28,4 @@ namespace Abilities
             }
         }
     }
-   
 }
