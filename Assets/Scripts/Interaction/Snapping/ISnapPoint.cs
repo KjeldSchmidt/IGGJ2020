@@ -4,6 +4,7 @@ namespace Interaction.Snapping
 {
     public interface ISnapPoint
     {
+        ISnapable Snapable { get; }
         bool Snapped { get; }
         Directions GetSnapDirection();
         ISnapPoint GetTriggeredSnapable();

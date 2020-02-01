@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Interaction.Containers;
 using Interaction.Dragging;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,7 +13,8 @@ namespace Interaction.Snapping
         private SpriteRenderer _spriteRenderer;
         private Color _baseColor;
         
-
+        public IShapeContainer ShapeContainer => transform.parent.GetComponent<IShapeContainer>();
+        
         private void Awake()
         {
             _spriteRenderer = GetComponent<SpriteRenderer>();

@@ -6,7 +6,9 @@ namespace Interaction.Containers
     {
         public void Destroy()
         {
-            Destroy(this);
+            Debug.Log(gameObject.name);
+            Debug.Log(transform);
+            Destroy(gameObject);
         }
     }
 }

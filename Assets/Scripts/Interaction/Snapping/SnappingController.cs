@@ -86,26 +86,26 @@ namespace Interaction.Snapping
 
         private void Snapsnapable(ISnapPoint selected, ISnapPoint target)
         {
-            //ToDo check for left/right/up/down pos?
-            Transform targetTransform = target.GetTransform();
-            Transform selectedParentTransform = selected.GetTransform().parent.transform;
-            float xOffset = selected.GetTransform().position.x - selectedParentTransform.position.x;
-            float yOffset = selected.GetTransform().position.y - selectedParentTransform.position.y;
-            Vector2 targetPosition = new Vector2(targetTransform.position.x - xOffset, targetTransform.position.y -yOffset);
-
-            //Debug.Log("xOffset: " + xOffset + "/yOffset: " + yOffset);
-            //Debug.Log("curPos: " + selectedParentTransform.position);
-            //Debug.Log("targetPos: " + targetPosition);
-            
-            selectedParentTransform.position = targetPosition;
+            Transform selectedSnapPoint = selected.GetTransform();
+            Transform selectedSnapable = selectedSnapPoint.parent;
+            Transform selectedShapeContainer = selectedSnapable.parent;
+            Transform targetSnapPoint = target.GetTransform();
+            Transform targetSnapable = targetSnapPoint.parent;
+            Transform targetShapeContainer = targetSnapable.parent;
+ 
+            float xOffset = selectedSnapPoint.position.x - selectedSnapable.position.x;
+            float yOffset = selectedSnapPoint.position.y - selectedSnapable.position.y;
+            Vector2 targetPosition = new Vector2(targetSnapPoint.position.x - xOffset, targetSnapPoint.position.y -yOffset);
+            selectedSnapable.position = targetPosition;
             
             //Move to target BlockContainer
-            IShapeContainer toDestroy = selectedParentTransform.parent.GetComponent<IShapeContainer>();
-            foreach (Transform shape in selectedParentTransform.parent.GetComponentsInChildren<Transform>())
+            foreach (Transform shape in selectedShapeContainer)
             {
-                shape.parent = targetTransform.parent.parent;   
+                Debug.Log("drop " + shape.name + " from " + targetSnapable.parent + " to " + targetSnapPoint.parent.parent);
+             //   shape.transform.position = new Vector3(shape.transform.position.x - xOffset, shape.transform.position.y - yOffset);
+                shape.parent = targetShapeContainer;   
             }
-            toDestroy.Destroy();
+            selectedShapeContainer.GetComponent<IShapeContainer>().Destroy();
             
             //Deactivates used Snapables
             selected.SetSnapped();
