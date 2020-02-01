@@ -16,7 +16,6 @@ public class StartButton : MonoBehaviour
     private void OnMouseDown()
     { 
         if (started) return;
-        Debug.Log("Start button!");
         started = true;
         foreach (var shapeContainer in _registeredShapeContainers)
         {
@@ -44,6 +43,7 @@ public class StartButton : MonoBehaviour
         if (_activeAbilitySource == abilitySource)
         {
             abilitySource.Deactivate();
+            _activeAbilitySource = null;
         }
         else
         {
