@@ -16,6 +16,7 @@ public class StartButton : MonoBehaviour
     private void OnMouseDown()
     { 
         if (started) return;
+        Debug.Log("Start button!");
         started = true;
         foreach (var shapeContainer in _registeredShapeContainers)
         {

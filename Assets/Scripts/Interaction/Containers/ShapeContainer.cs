@@ -29,16 +29,20 @@ namespace Interaction.Containers
         {
             if (!_sufficientPower)
             {
+                Debug.Log("Insufficient Power");
                 // Show flashing electricity symbols or something, idc
             }
             else
             {
+                Debug.Log("Starting container!");
+                print(forces);
                 GetComponent<Rigidbody2D>().AddForce( forces );
             }
         }
 
         public void PrepareStart()
         {
+            Debug.Log("Prepare Container!");
             int powerNeeded = 0;
             AbilityTarget[] targets = GetComponentsInChildren<AbilityTarget>();
             foreach (var target in targets)
@@ -54,7 +58,10 @@ namespace Interaction.Containers
 
         public void RegisterForce( Vector2 force )
         {
+            Debug.Log("Register force!");
+            Debug.Log(forces);
             forces += force;
+            Debug.Log(forces);
         }
     }
 }
