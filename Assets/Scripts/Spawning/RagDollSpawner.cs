@@ -10,6 +10,7 @@ namespace Spawning
         [SerializeField] private Vector2 rectangleOrigin;
         [SerializeField] private Vector2 rectangleFinish;
         [SerializeField] private Vector2 scaleRange;
+        [SerializeField] private Vector2 startVelocityRange;
 
         private void Awake()
         {
@@ -19,12 +20,21 @@ namespace Spawning
                     Random.Range(rectangleOrigin.x, rectangleFinish.x),  
                     Random.Range(rectangleOrigin.y, rectangleFinish.y)
                     );
-                Vector2 targetScale = new Vector2(
-                    Random.Range(scaleRange.x, scaleRange.x),  
-                    Random.Range(scaleRange.y, rectangleFinish.y)
-                );
+                float scale = Random.Range(scaleRange.x, scaleRange.y);
+                Vector2 targetScale = new Vector2(scale, scale);
+                
+                
                 GameObject ragDoll = Instantiate(ragDollPrefab);
                 ragDoll.transform.position = targetPos;
+                ragDoll.transform.localScale = targetScale;
+                ragDoll.transform.Rotate(0,0, Random.Range(0, 360));
+
+                //  Vector3 velocity = new Vector2(
+                //      Random.Range(-startVelocityRange.x, startVelocityRange.x), 
+                //      Random.Range(-startVelocityRange.y, startVelocityRange.y)
+                //      );
+                //// ragDoll.GetComponent<Rigidbody>().AddForce(velocity);
+                // ragDoll.GetComponent<Rigidbody>().AddTorque(velocity);
             }
         }
     }

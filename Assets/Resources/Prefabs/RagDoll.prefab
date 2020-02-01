@@ -319,6 +319,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4559241089814345340}
+  - component: {fileID: 1895827545}
   m_Layer: 0
   m_Name: RagDoll
   m_TagString: Untagged
@@ -346,6 +347,28 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1895827545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4559241089814345339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cdcb06f19894e9d8728c70097051699, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startDragRange: {x: 0.001, y: 1.6}
+  startAngularDragRange: {x: 0.001, y: 0.01}
+  startTorqueRange: {x: 0, y: 150}
+  startVelocityRange: {x: -6, y: 6}
+  rigidbodies:
+  - {fileID: 4559241090330825835}
+  - {fileID: 4559241090443362852}
+  - {fileID: 4559241089809454911}
+  - {fileID: 4559241091174350914}
+  - {fileID: 4559241089791535493}
 --- !u!1 &4559241090280189723
 GameObject:
   m_ObjectHideFlags: 0
@@ -1005,7 +1028,7 @@ Rigidbody2D:
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 1
   m_Mass: 0.87483376
-  m_LinearDrag: 0
+  m_LinearDrag: 1
   m_AngularDrag: 0.01
   m_GravityScale: 0.4
   m_Material: {fileID: 0}
