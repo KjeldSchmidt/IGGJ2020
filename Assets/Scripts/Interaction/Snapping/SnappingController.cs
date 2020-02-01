@@ -30,8 +30,11 @@ namespace Interaction.Snapping
         {
             ISnapable snapable = other.GetComponent<ISnapable>();
             if ( snapable == null) return;
-            
+
             _snapable?.UnHighlight();
+
+            if (_snapable != snapable) return;
+            
             _snapable = null;
             _snapableOffset = null;
         }
@@ -68,7 +71,7 @@ namespace Interaction.Snapping
             foreach (ISnapPoint snapPoint in snapPoints)
             {
                 ISnapPoint targetSnapPoint = snapPoint.GetTriggeredSnapable();
-                if (targetSnapPoint != null)
+                if (targetSnapPoint != null && snapPoint.GetTransform().parent.parent != targetSnapPoint.GetTransform().parent.parent)
                 {
                     Snapsnapable(snapPoint, targetSnapPoint);
                     return;

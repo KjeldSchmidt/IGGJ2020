@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Interaction.Snapping
 {
@@ -11,7 +12,6 @@ namespace Interaction.Snapping
         
         private SpriteRenderer _spriteRenderer;
         private Sprite _baseSprite;
-        private readonly Color _highlightColor = Color.black;
         private ISnapPoint _triggeredSnapPoint;
 
         public bool Snapped { get; private set; }
@@ -44,8 +44,8 @@ namespace Interaction.Snapping
             _spriteRenderer = GetComponent<SpriteRenderer>();
             _baseSprite = _spriteRenderer.sprite;
         }
-        
-        private void OnTriggerEnter2D(Collider2D other)
+
+        private void OnTriggerStay2D(Collider2D other)
         {
             if (Snapped) return;
             
@@ -58,7 +58,7 @@ namespace Interaction.Snapping
             _spriteRenderer.sprite = snappedSprite;
             _triggeredSnapPoint = snapPoint;
         }
-
+        
         private void OnTriggerExit2D(Collider2D other)
         {
             if (Snapped) return;

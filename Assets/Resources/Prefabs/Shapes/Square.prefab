@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8203641837547996401}
   - component: {fileID: 7374996114798787024}
+  - component: {fileID: 1828692954}
   m_Layer: 8
   m_Name: Square
   m_TagString: Untagged
@@ -44,6 +45,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06b0f42a22d94f789021d7b782731962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!50 &1828692954
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3693173408571321585}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!1001 &3706260919173391207
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -192,6 +214,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.x
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2668913698703399346, guid: 46a3d6f023237264d920119b5a4897cf,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2668913698703399346, guid: 46a3d6f023237264d920119b5a4897cf,
         type: 3}
@@ -369,7 +396,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5480205862250280870, guid: 46a3d6f023237264d920119b5a4897cf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 46a3d6f023237264d920119b5a4897cf, type: 3}
 --- !u!4 &9179130545631581436 stripped
 Transform:
