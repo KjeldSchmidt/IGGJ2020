@@ -28,13 +28,6 @@ namespace Spawning
                 ragDoll.transform.position = targetPos;
                 ragDoll.transform.localScale = targetScale;
                 ragDoll.transform.Rotate(0,0, Random.Range(0, 360));
-
-                //  Vector3 velocity = new Vector2(
-                //      Random.Range(-startVelocityRange.x, startVelocityRange.x), 
-                //      Random.Range(-startVelocityRange.y, startVelocityRange.y)
-                //      );
-                //// ragDoll.GetComponent<Rigidbody>().AddForce(velocity);
-                // ragDoll.GetComponent<Rigidbody>().AddTorque(velocity);
             }
         }
     }

@@ -180,7 +180,7 @@ HingeJoint2D:
   m_BreakTorque: 23
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.037944794, y: 3.0495248}
-  m_ConnectedAnchor: {x: 0.22653031, y: -1.0594594}
+  m_ConnectedAnchor: {x: 0.2265301, y: -1.0594594}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -326,7 +326,7 @@ HingeJoint2D:
   m_BreakTorque: 20
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.060813088, y: 3.0074623}
-  m_ConnectedAnchor: {x: 0.5441344, y: 0.8152056}
+  m_ConnectedAnchor: {x: 0.5441343, y: 0.8152056}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -404,7 +404,7 @@ MonoBehaviour:
   startAngularDragRange: {x: 0.001, y: 0.01}
   startTorqueRange: {x: 0, y: 5}
   startVelocityRange: {x: -6, y: 6}
-  massRange: {x: 0.1, y: 5}
+  massRange: {x: 0.1, y: 0.6}
   rigidbodies:
   - {fileID: 4559241090330825835}
   - {fileID: 4559241090443362852}
@@ -766,7 +766,7 @@ HingeJoint2D:
   m_BreakTorque: 20
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.06007576, y: 3.10365}
-  m_ConnectedAnchor: {x: -0.16171527, y: -1.0448459}
+  m_ConnectedAnchor: {x: -0.16171521, y: -1.0448459}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
@@ -912,7 +912,7 @@ HingeJoint2D:
   m_BreakTorque: 23
   m_AutoConfigureConnectedAnchor: 1
   m_Anchor: {x: 0.029829644, y: 3.0762818}
-  m_ConnectedAnchor: {x: -0.54392934, y: 0.79254246}
+  m_ConnectedAnchor: {x: -0.54392934, y: 0.7925426}
   m_UseMotor: 0
   m_Motor:
     m_MotorSpeed: 0
