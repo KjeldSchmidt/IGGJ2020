@@ -5,14 +5,17 @@ namespace Abilities
 {
     public class MoveSideways : MonoBehaviour, IAbility
     {
-        private bool _active = false;
+        private bool _active;
         private Transform _blockCollection;
         private Vector3 _movementDirection = Vector3.right;
-        private float speed = 0.1f;
+        private float speed = 0.2f;
         
-        public void Activate()
+        public void StartUsingAbility()
         {
-            _blockCollection = this.transform.parent.transform.parent;
+            Debug.Log(name);
+            Debug.Log(transform.parent.name);
+            Debug.Log(transform.parent.parent.name);
+            _blockCollection = transform.parent.parent;
             _active = true;
         }
 

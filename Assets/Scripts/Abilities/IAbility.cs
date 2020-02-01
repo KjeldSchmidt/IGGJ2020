@@ -4,7 +4,7 @@ namespace Abilities
 {
     public interface IAbility
     {
-        void Activate();
+        void StartUsingAbility();
         void Deactivate();
     }
 }

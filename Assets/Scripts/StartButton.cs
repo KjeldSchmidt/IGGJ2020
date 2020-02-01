@@ -8,17 +8,29 @@ public class StartButton : MonoBehaviour
 {
 
     private List<IAbility> _registeredAbilities = new List<IAbility>();
+    private AbilitySource _activeAbilitySource;
     
     private void OnMouseDown()
     {
          foreach (var ability in _registeredAbilities)
          {
-             ability.Activate();
+             ability.StartUsingAbility();
          }
     }
 
     public void RegisterAbility(IAbility ability)
     {
         _registeredAbilities.Add(ability);
+    }
+
+    public void ActivateAbilitySource( AbilitySource abilitySource )
+    {
+        if ( _activeAbilitySource != null ) _activeAbilitySource.Deactivate();
+        _activeAbilitySource = abilitySource;
+    }
+
+    public AbilitySource GetActiveAbilitySource()
+    {
+        return _activeAbilitySource;
     }
 }

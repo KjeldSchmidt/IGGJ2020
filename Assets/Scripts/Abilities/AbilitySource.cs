@@ -7,40 +7,25 @@ using UnityEngine;
 
 namespace Abilities
 {
-    public class AbilitySource : MonoBehaviour, IDraggable
+    public class AbilitySource : MonoBehaviour
     {
         public GameObject abilityPrefab;
-        private Vector3 _originalPosition;
+        private StartButton _startButton;
 
-        private void Start()
+        private void Awake()
         {
-            _originalPosition = transform.position;
+            _startButton = GameObject.Find("StartButton").GetComponent<StartButton>();
         }
 
-
-        public void Highlight() { }
-
-        public void UnHighlight() { }
-        public void MouseDown() { }
-
-        public void UpdatePosition(Vector2 pos)
+        public void OnMouseDown()
         {
-            transform.position = pos;
+            transform.localScale = Vector3.one * 1.2f;
+            _startButton.ActivateAbilitySource( this );
         }
 
-        public List<ISnapPoint> GetSnapables()
+        public void Deactivate()
         {
-            throw new NotImplementedException();
-        }
-
-        public Transform GetBlockContainerTransform()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void MouseUp()
-        {
-            transform.position = _originalPosition;
+            transform.localScale = Vector3.one;
         }
     }
 }
