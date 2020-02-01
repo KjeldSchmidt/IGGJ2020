@@ -11,19 +11,25 @@ public class StartButton : MonoBehaviour
     private List<IAbility> _registeredAbilities = new List<IAbility>();
     private List<IShapeContainer> _registeredShapeContainers = new List<IShapeContainer>();
     private AbilitySource _activeAbilitySource;
+    private bool started;
     
     private void OnMouseDown()
-    {
-         foreach (var ability in _registeredAbilities)
-         {
+    { 
+        if (started) return;
+        started = true;
+        foreach (var shapeContainer in _registeredShapeContainers)
+        {
+            shapeContainer.PrepareStart();
+        }
+        foreach (var ability in _registeredAbilities)
+        {
              ability.StartUsingAbility();
-         }
+        }
 
-         foreach (var shapeContainer in _registeredShapeContainers)
-         {
+        foreach (var shapeContainer in _registeredShapeContainers)
+        {
              shapeContainer.StartLevel();
-         }
-         
+        }
     }
 
     public void RegisterAbility(IAbility ability)

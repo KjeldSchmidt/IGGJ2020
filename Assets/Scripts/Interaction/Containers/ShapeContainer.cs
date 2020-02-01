@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using Abilities;
 using UnityEngine;
 
 namespace Interaction.Containers
@@ -8,6 +10,7 @@ namespace Interaction.Containers
     {
         public Transform Transform => transform;
         private StartButton _startButton;
+        private bool _sufficientPower;
 
         public void Start()
         {
@@ -23,7 +26,27 @@ namespace Interaction.Containers
 
         public void StartLevel()
         {
-            GetComponent<Rigidbody2D>().AddForce(transform.up*0.2f);
+            if (!_sufficientPower)
+            {
+                // Show flashing electriccity symbols or something, idc
+            }
+            else
+            {
+                GetComponent<Rigidbody2D>().AddForce(transform.up*10f);
+            }
+        }
+
+        public void PrepareStart()
+        {
+            int powerNeeded = 0;
+            AbilityTarget[] targets = GetComponentsInChildren<AbilityTarget>();
+            foreach (var target in targets)
+            {
+                powerNeeded++;
+            }
+            ElectricityAbility[] powerSources = GetComponentsInChildren<ElectricityAbility>();
+
+            _sufficientPower = powerSources.Length >= powerNeeded;
         }
     }
 }
