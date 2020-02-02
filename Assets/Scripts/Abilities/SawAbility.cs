@@ -15,8 +15,7 @@ namespace Abilities
             if (!_isActive) return;
             GrimReaper grimReaper = other.GetComponent<GrimReaper>();
             if (!grimReaper) return;
-            Debug.Log("Grim");
-        
+
             _isActive = false;
             transform.parent.parent.GetComponent<Rigidbody2D>().AddForce(new Vector2(-5, 2));
             grimReaper.InflictDamage();
@@ -24,6 +23,9 @@ namespace Abilities
 
         public override void StartUsingAbility()
         {
+            AudioSource audio = gameObject.AddComponent<AudioSource>();
+            audio.clip = Resources.Load("SoundEffects/Chainsaw/Saw") as AudioClip;
+            audio.Play();
             _isActive = true;
             sawAnimation.Play();
         }
