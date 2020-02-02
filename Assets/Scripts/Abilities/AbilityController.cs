@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Abilities
 {
@@ -41,6 +42,7 @@ namespace Abilities
 
             Vector2 targetPos = mouseTransform.position;
             _abilitySource.Transform.position = targetPos;
+            _abilitySource.Transform.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
             _isDragging = true;
             _abilitySource.SetIsTrigger(true);
         }

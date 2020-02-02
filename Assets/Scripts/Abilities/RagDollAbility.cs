@@ -19,6 +19,7 @@ namespace Abilities
                 yield return new WaitForSeconds(shootCooldown);
                 ShootRagDoll();
                 shootCooldown = shootCooldown * 0.9f;
+                if (shootCooldown < 0.1f) shootCooldown = 0.1f;
             }
         }
 

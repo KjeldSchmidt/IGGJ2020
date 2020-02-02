@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using Interaction.Containers;
 using UnityEngine;
 
 public class GrimReaper : MonoBehaviour
@@ -30,6 +34,21 @@ public class GrimReaper : MonoBehaviour
             _rigidbody2D.constraints = RigidbodyConstraints2D.None;
             _rigidbody2D.AddForce(new Vector2(20, 2));
             level2Controller.FinishLevel();
+            
+            StartCoroutine(ClearAllShapeContainer());
+        }
+    }
+
+    private IEnumerator ClearAllShapeContainer()
+    {
+        yield return new WaitForSeconds(1);
+        foreach (var root in gameObject.scene.GetRootGameObjects())
+        {
+            IShapeContainer[] shapeContainer = root.GetComponentsInChildren<IShapeContainer>();
+            foreach (var container in shapeContainer)
+            {
+                Destroy(container.Transform.gameObject);
+            }
         }
     }
 }

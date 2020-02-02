@@ -1,6 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Interaction.Containers;
-using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Interaction.Snapping
@@ -12,6 +12,7 @@ namespace Interaction.Snapping
         private bool _isDragging;
         private ISnapForest _snapForest = new SnapForest();
         private AudioSource _snapSound;
+        private float _lastGravityScale;
 
         public void OnTriggerStay2D(Collider2D other)
         {
@@ -59,7 +60,10 @@ namespace Interaction.Snapping
             _isDragging = true;
             Vector2? targetPos = mouseTransform.position + _snapableOffset;
             _snapable.GetBlockContainerTransform().position = (Vector3) targetPos;
-            
+
+            Rigidbody2D snapableRb = _snapable.Transform.parent.GetComponent<Rigidbody2D>();
+            if (Math.Abs(snapableRb.gravityScale) > 0.001f) _lastGravityScale = snapableRb.gravityScale;
+            snapableRb.gravityScale = 0;
         }
     
         public void MouseUp()
@@ -71,7 +75,7 @@ namespace Interaction.Snapping
                 TrySnap(snapable);
                 _snapable.SetIsTrigger(false);
             }
-            
+            _snapable.Transform.parent.GetComponent<Rigidbody2D>().gravityScale = _lastGravityScale;
             _isDragging = false;
             _snapableOffset = null;
             _snapable = null;
