@@ -26,12 +26,6 @@ namespace Interaction
         {
             _snappingController.OnTriggerStay2D(other);
             _abilityController.OnTriggerStay2D(other);
-
-            StartButton startButton = other.GetComponent<StartButton>();
-            if (startButton && Input.GetMouseButtonDown(0))
-            {
-                startButton.StartAbilities();
-            }
         }
 
         private void OnTriggerExit2D(Collider2D other)

@@ -7,7 +7,6 @@ namespace Interaction.Containers
     public class ShapeContainer: MonoBehaviour, IShapeContainer
     {
         public Transform Transform => transform;
-        private StartButton _startButton;
         private Vector2 _acceleration;
         private float _maxVelocity;
         private Rigidbody2D _rigidbody2D;
@@ -17,28 +16,23 @@ namespace Interaction.Containers
         public void Start()
         {
             _rigidbody2D = GetComponent<Rigidbody2D>();
-            _startButton = GameObject.Find("StartButton").GetComponent<StartButton>();
-            _startButton.RegisterShapeContainer(this);
         }
 
         public void Destroy()
         {
-            _startButton.UnregisterShapeContainer(this);
             Destroy(gameObject);
         }
 
-        public void StartLevel()
-        {
-            if (!_sufficientPower)
-            {
-                Debug.Log("Insufficient Power");
-                return;
-                // Show flashing electricity symbols or something, idc
-            }
-        }       
-
         public void PrepareStart()
         {
+            ElectricityAbility electricityAbility = GetComponentInChildren<ElectricityAbility>();
+            if (!electricityAbility) return;
+            
+            foreach (IAbility ability in transform.GetComponentsInChildren<IAbility>())
+            {
+                ability.StartUsingAbility();
+            }
+
             int powerNeeded = 0;
             AbilityTarget[] targets = GetComponentsInChildren<AbilityTarget>();
             foreach (var target in targets)

@@ -4,9 +4,11 @@ namespace Abilities
 {
     public abstract class AbstractAbility : MonoBehaviour, IAbility
     {
+        [SerializeField] private ElectricityAbility electricityAbility;
+        
         public void Start()
         {
-            GameObject.Find("StartButton").GetComponent<StartButton>().RegisterAbility( this );
+            //electricityAbility.RegisterAbility(this);
         }
         
         public abstract void StartUsingAbility();

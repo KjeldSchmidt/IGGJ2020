@@ -117,6 +117,7 @@ namespace Interaction.Snapping
                 position = new Vector2(position.x - xOffsetTotal, position.y -yOffsetTotal);
                 shape.position = position;
             }
+            targetShapeContainer.GetComponent<IShapeContainer>().PrepareStart();
             
             //Destroy old Container
             selectedShapeContainer.GetComponent<IShapeContainer>().Destroy();
