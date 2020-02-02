@@ -27,7 +27,7 @@ namespace Abilities
         IEnumerator Destroy()
         {
             yield return new WaitForSeconds(3);
-            Destroy(transform.parent.parent);
+            Destroy(transform.parent.parent.gameObject);
         }
 
         public override void StartUsingAbility()
