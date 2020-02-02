@@ -1,14 +1,16 @@
-﻿using Spawning;
+﻿using Interaction;
+using Spawning;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Level1Controller : MonoBehaviour
 {
+    [SerializeField] private CursorController cursorController;
     [SerializeField] private GameObject startGameButton;
     [SerializeField] private GameObject reaperMover;
     [SerializeField] private Animation moveReaperToTop;
     [SerializeField] private GameObject level1ShapesContainer;
     [SerializeField] private GameObject level1AbilitiesContainer;
+    [SerializeField] private GameObject level1BlockTopScreen;
     
     private GameStateManager _gameStateManager;
     
@@ -19,6 +21,8 @@ public class Level1Controller : MonoBehaviour
         
         //Move Reaper to Top
         reaperMover.SetActive(true);
+        level1BlockTopScreen.SetActive(true);
+        cursorController.maxCursorPosition = new Vector2(19, 5);
         moveReaperToTop.Play();
         Destroy(startGameButton);
         DestroyRagDolls();

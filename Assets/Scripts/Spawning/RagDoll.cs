@@ -43,14 +43,6 @@ namespace Spawning
             AddTorque();
         }
 
-       // private void Update()
-       // {
-       //     //Destroy after ragdoll joined camera & left it again
-       //     if (transform.position.y < 8) _hitGround = true;
-       //     if(_hitGround && transform.position.y > 10 || transform.position.y < -10 || transform.position.x < -5 || transform.position.x > 20) Destroy(gameObject);
-       //     
-       // }
-
         private void SetTools()
         {
             foreach (Transform toolSlotTransform in toolSlots)

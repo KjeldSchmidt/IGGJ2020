@@ -11,7 +11,7 @@ namespace Interaction
         private ISnappingController _snappingController;
         private IAbilityController _abilityController;
 
-        [SerializeField] private Vector2 maxCursorPosition;
+        public Vector2 maxCursorPosition;
 
         private void Awake()
         {
