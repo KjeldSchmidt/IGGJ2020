@@ -14,6 +14,7 @@ namespace Bombs
         [SerializeField] private float timeToExplode = default;
         [SerializeField] private float timeExploding = default;
         [SerializeField] private float explosionScale = default;
+        private AudioSource _explosionSounds;
 
         private SpriteRenderer _spriteRenderer;
         void Start ()
@@ -22,6 +23,8 @@ namespace Bombs
             StartCoroutine (StartBombTimer ());
 
             timeToExplode = Random.Range(timeExploding - 1, timeToExplode + 2);
+            _explosionSounds = gameObject.AddComponent<AudioSource>();
+            _explosionSounds.clip = Resources.Load("SoundEffects/Explosion/Explosion") as AudioClip;
         }
 
         private bool exploding;
@@ -42,6 +45,7 @@ namespace Bombs
             transform.localScale = new Vector3(explosionScale,explosionScale, 1);
             exploding = true;
             _spriteRenderer.enabled = false;
+            _explosionSounds.Play();
         }
         
         void OnCollisionEnter2D( Collision2D other)
