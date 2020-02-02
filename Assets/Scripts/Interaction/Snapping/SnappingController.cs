@@ -142,7 +142,7 @@ namespace Interaction.Snapping
             Debug.Log("Prepare snap sound!");
             GameObject soundObj = new GameObject("Snap Sound Object");
             _snapSound = soundObj.AddComponent<AudioSource>();
-            _snapSound.clip = Resources.Load("SoundEffects/Snap/SnapSound.wav") as AudioClip;
+            _snapSound.clip = Resources.Load("SoundEffects/Snap/SnapSound") as AudioClip;
         }
         
         public bool IsDragging()
