@@ -25,6 +25,7 @@ namespace Abilities
         {
             if (!_started) return;
             
+            _shapeContainer.SetGravityScale(gravityScale);
             _shapeContainer.AddAcceleration(movementDirection * acceleration);
         }
 

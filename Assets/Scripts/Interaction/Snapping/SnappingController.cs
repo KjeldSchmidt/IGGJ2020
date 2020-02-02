@@ -143,7 +143,6 @@ namespace Interaction.Snapping
 
         private void PrepareSnapSound( )
         {
-            Debug.Log("Prepare snap sound!");
             GameObject soundObj = new GameObject("Snap Sound Object");
             _snapSound = soundObj.AddComponent<AudioSource>();
             _snapSound.clip = Resources.Load("SoundEffects/Snap/SnapSound") as AudioClip;

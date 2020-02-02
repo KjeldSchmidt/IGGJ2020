@@ -2,7 +2,7 @@
 
 public class StartHammerTime : MonoBehaviour
 {
-    [SerializeField] private Animation hammertimeAnimation;
+    [SerializeField] private Animation hammertimeAnimation = default;
 
     public void StartAnimation()
     {
