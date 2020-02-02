@@ -11,13 +11,21 @@ namespace Abilities
         [SerializeField] private float gravityScale = 0.01f;
         
         private ShapeContainer _shapeContainer;
-        
+        private bool _started;
+
         public override void StartUsingAbility()
         {
             _shapeContainer = transform.parent.parent.GetComponent<ShapeContainer>();
             _shapeContainer.SetGravityScale(gravityScale);
-            _shapeContainer.SetAcceleration( movementDirection * acceleration );
             _shapeContainer.SetMaxVelocity(maxVelocity);
+            _started = true;
+        }
+        
+        private void Update()
+        {
+            if (!_started) return;
+            
+            _shapeContainer.AddAcceleration(movementDirection * acceleration);
         }
 
         public override void Deactivate() { }
