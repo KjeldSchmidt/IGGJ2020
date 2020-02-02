@@ -16,8 +16,9 @@ namespace Abilities
             GrimReaper grimReaper = other.GetComponent<GrimReaper>();
             if (!grimReaper) return;
             Debug.Log("Grim");
-
+        
             _isActive = false;
+            transform.parent.parent.GetComponent<Rigidbody2D>().AddForce(new Vector2(-5, 2));
             grimReaper.InflictDamage();
         }
 
