@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 810345255068376209}
   - component: {fileID: 249972498419038548}
   - component: {fileID: 810345255068376208}
+  - component: {fileID: 1490154202}
   m_Layer: 8
   m_Name: Shape
   m_TagString: Untagged
@@ -119,7 +120,7 @@ BoxCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
+    border: {x: 0.11, y: 0.11, z: 0.12, w: 0.11}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 1.61, y: 1.61}
     newSize: {x: 0.16, y: 0.16}
@@ -130,6 +131,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.61, y: 1.61}
   m_EdgeRadius: 0
+--- !u!114 &1490154202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 810345255068376210}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14f5e988427a4c17953bbbae5d5dd86b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiresElectricity: 0
+  maxAbilities: 1
 --- !u!1 &5124242654984873123
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,11 +201,11 @@ Rigidbody2D:
   m_BodyType: 0
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
+  m_UseAutoMass: 1
+  m_Mass: 2.5921001
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
