@@ -4,9 +4,11 @@ namespace Abilities
 {
     public class AbilityTarget : MonoBehaviour
     {
-        private StartButton _startButton;
         public bool requiresElectricity = false;
-        public int maxAbilities = 1;
+        [SerializeField] private int maxAbilities = 1;
+        [SerializeField] private Transform abilitySlot;
+        
+        private StartButton _startButton;
         private int remainingAbilities;
 
         public void Start()
@@ -17,7 +19,8 @@ namespace Abilities
         public bool AssignAbility( GameObject abilityPrefab )
         { 
             if (remainingAbilities == 0) return false;
-            Instantiate( abilityPrefab, transform );
+            GameObject go = Instantiate( abilityPrefab, transform );
+            go.transform.position = abilitySlot.transform.position;
             remainingAbilities--;
             return true;
         }

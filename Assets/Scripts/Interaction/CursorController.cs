@@ -79,6 +79,10 @@ namespace Interaction
             }
             
             _abilityController.MouseDown(transform);
+            if (_abilityController.IsDragging())
+            {
+                return;
+            }
             _snappingController.MouseDown(transform);
             
         }
