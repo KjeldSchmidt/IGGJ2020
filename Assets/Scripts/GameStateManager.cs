@@ -9,10 +9,10 @@ public class GameStateManager : MonoBehaviour
     [SerializeField] private Animation bulldozerAnimation = default;
     [SerializeField] private Level1Controller level1Controller = default;
     [SerializeField] private Level2Controller level2Controller = default;
+    [SerializeField] private Animation mainCameraAnimation = default;
     
     private int _stateId = 0;
     
-    //Todo fix state machine
     void Update()
     {
         switch (_stateId)
@@ -31,8 +31,6 @@ public class GameStateManager : MonoBehaviour
             case 4:
                 break;
             case 5:
-                FinishLevel2();
-                //ToDo Show Credits
                 break;
             default:
                 break;
@@ -67,6 +65,6 @@ public class GameStateManager : MonoBehaviour
 
     public void FinishLevel2()
     {
-        _stateId++;
+        mainCameraAnimation.Play();
     }
 }
