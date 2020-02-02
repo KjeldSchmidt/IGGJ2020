@@ -10,13 +10,27 @@ namespace Interaction.Containers
     {
         public Transform Transform => transform;
         private StartButton _startButton;
+        private Vector2 _acceleration;
+        private float _maxVelocity;
+        private Rigidbody2D _rigidbody2D;
+        private bool _started;
+        
         private bool _sufficientPower;
-        private Vector2 forces;
 
         public void Start()
         {
+            _rigidbody2D = GetComponent<Rigidbody2D>();
             _startButton = GameObject.Find("StartButton").GetComponent<StartButton>();
             _startButton.RegisterShapeContainer(this);
+        }
+
+        private void Update()
+        {
+            if (!_started) return;
+            
+            if (_rigidbody2D.velocity.magnitude < _maxVelocity){
+                _rigidbody2D.AddForce(_acceleration);
+            }
         }
 
         public void Destroy()
@@ -30,12 +44,11 @@ namespace Interaction.Containers
             if (!_sufficientPower)
             {
                 Debug.Log("Insufficient Power");
+                return;
                 // Show flashing electricity symbols or something, idc
             }
-            else
-            {
-                GetComponent<Rigidbody2D>().AddForce( forces * 10 );
-            }
+            
+            _started = true;
         }
 
         public void PrepareStart()
@@ -53,9 +66,20 @@ namespace Interaction.Containers
             _sufficientPower = powerSources.Length >= powerNeeded;
         }
 
-        public void RegisterForce( Vector2 force )
+        public void SetAcceleration( Vector2 force )
         {
-            forces += force;
+            this._acceleration += force;
         }
+
+        public void SetGravityScale(float val)
+        {
+            _rigidbody2D.gravityScale = val;
+        }
+
+        public void SetMaxVelocity(float val)
+        {
+            _maxVelocity = val;
+        }
+        
     }
 }

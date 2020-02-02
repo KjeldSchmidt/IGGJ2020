@@ -1,13 +1,21 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Abilities
 {
     public class AbilitySource : MonoBehaviour, IAbilitySource
     {
-        [SerializeField] private GameObject abilityPrefab;
-        private AbilityTarget _abilityTarget;
-        
         public Transform Transform => transform;
+        
+        [SerializeField] private GameObject abilityPrefab;
+
+        private Collider2D _collider2D;
+        private AbilityTarget _abilityTarget;
+
+        private void Awake()
+        {
+            _collider2D = GetComponent<Collider2D>();
+        }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
@@ -38,7 +46,12 @@ namespace Abilities
         {
             transform.position = pos;
         }
-        
+
+        public void SetIsTrigger(bool val)
+        {
+            _collider2D.isTrigger = val;
+        }
+
         public void TryAssignToAbilityTarget()
         {
             if (!_abilityTarget) return;

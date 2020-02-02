@@ -229,7 +229,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -260,7 +260,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -277,6 +277,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2139925487, guid: 2bbfcfb0dce489140b8da90d26a68512, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 598469418891115837, guid: 2bbfcfb0dce489140b8da90d26a68512,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -291,6 +295,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 598469418891115838, guid: 2bbfcfb0dce489140b8da90d26a68512,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 598469419170926813, guid: 2bbfcfb0dce489140b8da90d26a68512,
         type: 3}
@@ -307,6 +316,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 598469419170926814, guid: 2bbfcfb0dce489140b8da90d26a68512,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 598469419873655661, guid: 2bbfcfb0dce489140b8da90d26a68512,
         type: 3}
       propertyPath: m_LocalScale.y
@@ -316,6 +330,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.y
       value: -13.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 598469419873655662, guid: 2bbfcfb0dce489140b8da90d26a68512,
+        type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 598469420029004875, guid: 2bbfcfb0dce489140b8da90d26a68512,
         type: 3}
@@ -394,6 +413,10 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 2.5921001
       objectReference: {fileID: 0}
+    - target: {fileID: 1828692954, guid: 7597324492a47bb4a9e03d92895968d3, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3693173408571321585, guid: 7597324492a47bb4a9e03d92895968d3,
         type: 3}
       propertyPath: m_Name
@@ -402,7 +425,7 @@ PrefabInstance:
     - target: {fileID: 8203641837547996401, guid: 7597324492a47bb4a9e03d92895968d3,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 8.53
+      value: 5.48
       objectReference: {fileID: 0}
     - target: {fileID: 8203641837547996401, guid: 7597324492a47bb4a9e03d92895968d3,
         type: 3}
@@ -678,6 +701,10 @@ PrefabInstance:
       propertyPath: m_Mass
       value: 2.5921001
       objectReference: {fileID: 0}
+    - target: {fileID: 1828692954, guid: 7597324492a47bb4a9e03d92895968d3, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3693173408571321585, guid: 7597324492a47bb4a9e03d92895968d3,
         type: 3}
       propertyPath: m_Name
@@ -759,6 +786,10 @@ PrefabInstance:
     - target: {fileID: 544621716, guid: 3e97dbf2a63b1df40a87c1dd8cbf276a, type: 3}
       propertyPath: m_Mass
       value: 2.5921001
+      objectReference: {fileID: 0}
+    - target: {fileID: 544621716, guid: 3e97dbf2a63b1df40a87c1dd8cbf276a, type: 3}
+      propertyPath: m_GravityScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 397740527813659811, guid: 3e97dbf2a63b1df40a87c1dd8cbf276a,
         type: 3}
@@ -988,7 +1019,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1083,7 +1114,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1138,7 +1169,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -1154,7 +1185,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -1265,7 +1296,7 @@ GameObject:
   - component: {fileID: 1784762599}
   - component: {fileID: 1784762601}
   - component: {fileID: 1784762600}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: LeftBorder (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

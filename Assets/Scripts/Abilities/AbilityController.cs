@@ -42,7 +42,7 @@ namespace Abilities
             Vector2 targetPos = mouseTransform.position;
             _abilitySource.Transform.position = targetPos;
             _isDragging = true;
-
+            _abilitySource.SetIsTrigger(true);
         }
     
         public void MouseUp()
@@ -50,6 +50,7 @@ namespace Abilities
             if (_abilitySource == null) return;
 
             _abilitySource.TryAssignToAbilityTarget();
+            _abilitySource?.SetIsTrigger(false);
             _abilitySource = null;
             _isDragging = false;
         }
