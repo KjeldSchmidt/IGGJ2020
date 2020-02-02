@@ -36,21 +36,7 @@ public class StartButton : MonoBehaviour
     {
         _registeredAbilities.Add(ability);
     }
-
-    public void ActivateAbilitySource( AbilitySource abilitySource )
-    {
-        if ( _activeAbilitySource != null ) _activeAbilitySource.Deactivate();
-        if (_activeAbilitySource == abilitySource)
-        {
-            abilitySource.Deactivate();
-            _activeAbilitySource = null;
-        }
-        else
-        {
-            _activeAbilitySource = abilitySource;   
-        }
-    }
-
+    
     public AbilitySource GetActiveAbilitySource()
     {
         return _activeAbilitySource;

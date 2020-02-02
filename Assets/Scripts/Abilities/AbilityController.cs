@@ -18,7 +18,7 @@ namespace Abilities
             {
                 _abilitySource.UnHighlight();
             }
-            Debug.Log("OnTriggerStay2D: " + abilitySource);
+            
             abilitySource.Highlight();
             _abilitySource = abilitySource;
             

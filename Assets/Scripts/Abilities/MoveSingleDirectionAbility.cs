@@ -1,7 +1,5 @@
-﻿using System;
-using Interaction.Containers;
+﻿using Interaction.Containers;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Abilities
 {
