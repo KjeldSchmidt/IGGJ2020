@@ -8,17 +8,17 @@ namespace Spawning
 {
     public class RagDoll: MonoBehaviour
     {
-        [SerializeField] private Vector2 startDragRange;
-        [SerializeField] private Vector2 startAngularDragRange;
-        [SerializeField] private Vector2 startTorqueRange;
-        [SerializeField] private Vector2 startVelocityRange;
-        [SerializeField] private List<Rigidbody2D> rigidbodies;
+        [SerializeField] private Vector2 startDragRange = default;
+        [SerializeField] private Vector2 startAngularDragRange = default;
+        [SerializeField] private Vector2 startTorqueRange = default;
+        [SerializeField] private Vector2 startVelocityRange = default;
+        [SerializeField] private List<Rigidbody2D> rigidbodies = default;
 
-        [SerializeField] private float toolChance;
-        [SerializeField] private List<GameObject> toolPrefabs;
-        [SerializeField] private List<Transform> toolSlots;
+        [SerializeField] private float toolChance = default;
+        [SerializeField] private List<GameObject> toolPrefabs = default;
+        [SerializeField] private List<Transform> toolSlots = default;
 
-        [SerializeField] private SpriteRenderer deadEyesSpriteRenderer;
+        [SerializeField] private SpriteRenderer deadEyesSpriteRenderer = default;
 
         private Counter _counter;
     //    private bool _hitGround;

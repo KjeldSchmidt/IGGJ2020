@@ -11,9 +11,9 @@ namespace Bombs
     [RequireComponent(typeof(SpriteRenderer))]
     public class Bomb: MonoBehaviour
     {
-        [SerializeField] private float timeToExplode;
-        [SerializeField] private float timeExploding;
-        [SerializeField] private float explosionScale;
+        [SerializeField] private float timeToExplode = default;
+        [SerializeField] private float timeExploding = default;
+        [SerializeField] private float explosionScale = default;
 
         private SpriteRenderer _spriteRenderer;
         void Start ()

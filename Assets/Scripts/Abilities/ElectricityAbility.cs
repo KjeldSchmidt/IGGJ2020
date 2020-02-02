@@ -1,19 +1,9 @@
-﻿using System.Collections.Generic;
-using Interaction.Containers;
-
-namespace Abilities
+﻿namespace Abilities
 {
     public class ElectricityAbility : AbstractAbility
     {
-        private bool _active;
-        private ShapeContainer _shapeContainer;
-        private float speed = 0.2f;
-        private bool started;
-        
-        private List<IAbility> _registeredAbilities = new List<IAbility>();
-        private List<IShapeContainer> _registeredShapeContainers = new List<IShapeContainer>();
 
-       public void StartAbilities()
+        public void StartAbilities()
         {
         }
         
@@ -24,7 +14,5 @@ namespace Abilities
         public override void Deactivate()
         {
         }
-
-
     }
 }

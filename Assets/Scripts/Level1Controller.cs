@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class Level1Controller : MonoBehaviour
 {
-    [SerializeField] private CursorController cursorController;
-    [SerializeField] private GameObject startGameButton;
-    [SerializeField] private GameObject reaperMover;
-    [SerializeField] private Animation moveReaperToTop;
-    [SerializeField] private GameObject level1ShapesContainer;
-    [SerializeField] private GameObject level1AbilitiesContainer;
-    [SerializeField] private GameObject level1BlockTopScreen;
+    [SerializeField] private CursorController cursorController = default;
+    [SerializeField] private GameObject startGameButton = default;
+    [SerializeField] private GameObject reaperMover = default;
+    [SerializeField] private Animation moveReaperToTop = default;
+    [SerializeField] private GameObject level1ShapesContainer = default;
+    [SerializeField] private GameObject level1AbilitiesContainer = default;
+    [SerializeField] private GameObject level1BlockTopScreen = default;
     
     private GameStateManager _gameStateManager;
     
@@ -46,8 +46,8 @@ public class Level1Controller : MonoBehaviour
         level1AbilitiesContainer.SetActive(true);
     }
     
-    private void FinishLevel()
-    {
+    public void FinishLevel()
+    {   level1BlockTopScreen.SetActive(false);
         _gameStateManager.FinishLevel1();
     }
 }

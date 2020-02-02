@@ -6,9 +6,9 @@ namespace Abilities
     public class AbilityTarget : MonoBehaviour
     {
         public bool requiresElectricity = false;
-        
+
         [SerializeField] private int maxAbilities = 1;
-        [SerializeField] private Transform abilitySlot;
+        [SerializeField] private Transform abilitySlot = default;
         
         private int remainingAbilities;
 

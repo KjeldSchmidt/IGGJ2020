@@ -4,7 +4,7 @@ namespace Spawning
 {
     public class Counter: MonoBehaviour
     {
-        [SerializeField] private TextMesh textMeshCounter;
+        [SerializeField] private TextMesh textMeshCounter = default;
         private int _count = 0;
 
         public void IncreaseCounter()

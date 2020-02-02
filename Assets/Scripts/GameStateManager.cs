@@ -4,12 +4,15 @@ using UnityEngine.Serialization;
 
 public class GameStateManager : MonoBehaviour
 {
-    [SerializeField] private Counter counter;
-    [SerializeField] private GameObject bullDozer;
-    [SerializeField] private Animation bulldozerAnimation;
-    [SerializeField] private Level1Controller level1Controller;
+    [SerializeField] private Counter counter = default;
+    [SerializeField] private GameObject bullDozer = default;
+    [SerializeField] private Animation bulldozerAnimation = default;
+    [SerializeField] private Level1Controller level1Controller = default;
+    [SerializeField] private Level2Controller level2Controller = default;
     
     private int _stateId = 0;
+    
+    //Todo fix state machine
     void Update()
     {
         switch (_stateId)
@@ -21,12 +24,14 @@ public class GameStateManager : MonoBehaviour
                 StartLevel1();
                 break;
             case 2:
-                FinishLevel1();
-                //ToDo Damage GrimReaper & move him behind wall
-                //ToDo Throw in Tractor parts to demolish wall
                 break;
             case 3:
-                //ToDo Damage GrimReaper & make him leave
+                StartLevel2();
+                break;
+            case 4:
+                break;
+            case 5:
+                FinishLevel2();
                 //ToDo Show Credits
                 break;
             default:
@@ -51,7 +56,17 @@ public class GameStateManager : MonoBehaviour
 
     public void FinishLevel1()
     {
-        return; //ToDo
+        _stateId++;
+    }
+    
+    public void StartLevel2()
+    {
+        level2Controller.StartLevel(this);
+        _stateId++;
+    }
+
+    public void FinishLevel2()
+    {
         _stateId++;
     }
 }

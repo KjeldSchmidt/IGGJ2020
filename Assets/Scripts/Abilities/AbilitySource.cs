@@ -7,7 +7,7 @@ namespace Abilities
     {
         public Transform Transform => transform;
         
-        [SerializeField] private GameObject abilityPrefab;
+        [SerializeField] private GameObject abilityPrefab = default;
 
         private Collider2D _collider2D;
         private AbilityTarget _abilityTarget;

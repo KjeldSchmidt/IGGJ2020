@@ -4,8 +4,8 @@ namespace Bombs
 {
     public class BombSpawner : MonoBehaviour
     {
-        [SerializeField] private Transform spawnPosition;
-        [SerializeField] private GameObject bombPrefab;
+        [SerializeField] private Transform spawnPosition = default;
+        [SerializeField] private GameObject bombPrefab = default;
 
         public void SpawnBomb()
         {

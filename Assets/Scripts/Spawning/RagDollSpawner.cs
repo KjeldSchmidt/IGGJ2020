@@ -5,13 +5,12 @@ namespace Spawning
 {
     public class RagDollSpawner: MonoBehaviour
     {
-        [SerializeField] private GameObject ragDollPrefab;
-        [SerializeField] private int ragDollCount;
-        [SerializeField] private Vector2 rectangleOrigin;
-        [SerializeField] private Vector2 rectangleFinish;
-        [SerializeField] private Vector2 scaleRange;
-        [SerializeField] private Vector2 startVelocityRange;
-        [SerializeField] private Counter counter;
+        [SerializeField] private GameObject ragDollPrefab = default;
+        [SerializeField] private int ragDollCount = default;
+        [SerializeField] private Vector2 rectangleOrigin = default;
+        [SerializeField] private Vector2 rectangleFinish = default;
+        [SerializeField] private Vector2 scaleRange = default;
+        [SerializeField] private Counter counter = default;
         
         public void SpawnRagDolls()
         {

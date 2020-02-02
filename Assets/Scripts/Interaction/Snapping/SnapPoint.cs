@@ -7,8 +7,8 @@ namespace Interaction.Snapping
     [RequireComponent(typeof(SpriteRenderer))]
     public class SnapPoint: MonoBehaviour, ISnapPoint
     {
-        [SerializeField] private Directions snapDirection;
-        [SerializeField] private Sprite snappedSprite;
+        [SerializeField] private Directions snapDirection = default;
+        [SerializeField] private Sprite snappedSprite = default;
         
         private SpriteRenderer _spriteRenderer;
         private Sprite _baseSprite;

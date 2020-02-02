@@ -12,7 +12,7 @@ namespace Interaction.Snapping
         public Transform Transform => transform;
         public IShapeContainer ShapeContainer => transform.parent.GetComponent<IShapeContainer>();
         
-        [SerializeField] private List<SnapPoint> snapables;
+        [SerializeField] private List<SnapPoint> snapables = default;
 
         private Collider2D _collider2D;
 

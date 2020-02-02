@@ -5,7 +5,7 @@ namespace Abilities
 {
     public class MoveAbility : AbstractAbility
     {
-        [SerializeField] private Vector2 movementDirection;
+        [SerializeField] private Vector2 movementDirection = default;
         [SerializeField] private float acceleration = 0.1f;
         [SerializeField] private float maxVelocity = 1f;
         [SerializeField] private float gravityScale = 0.01f;

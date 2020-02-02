@@ -8,10 +8,10 @@ namespace Interaction
 {
     public class StartGameButton: MonoBehaviour
     {
-        [SerializeField] private List<SpriteRenderer> spriteRenderers;
-        [SerializeField] private List<TextMesh> textMeshes;
-        [SerializeField] private Animation startAnimation;
-        [SerializeField] private RagDollSpawner ragDollSpawner;
+        [SerializeField] private List<SpriteRenderer> spriteRenderers = default;
+        [SerializeField] private List<TextMesh> textMeshes = default;
+        [SerializeField] private Animation startAnimation = default;
+        [SerializeField] private RagDollSpawner ragDollSpawner = default;
         
         private void OnTriggerEnter2D(Collider2D other)
         {

@@ -5,7 +5,7 @@ namespace Spawning
     [RequireComponent(typeof(Rigidbody2D))]
     public class Limb: MonoBehaviour
     {
-        [SerializeField] private RagDoll ragDoll;
+        [SerializeField] private RagDoll ragDoll = default;
         
         private int _detachedLimbsCount = 0;
         private bool _isDead;
