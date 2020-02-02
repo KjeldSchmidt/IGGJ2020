@@ -1,4 +1,5 @@
-﻿using Interaction.Containers;
+﻿using System.Collections;
+using Interaction.Containers;
 using UnityEngine;
 
 namespace Abilities
@@ -17,8 +18,16 @@ namespace Abilities
             if (!grimReaper) return;
 
             _isActive = false;
-            transform.parent.parent.GetComponent<Rigidbody2D>().AddForce(new Vector2(-5, 2));
+            transform.parent.parent.GetComponent<Rigidbody2D>().AddForce(new Vector2(-20, 13));
+            StartCoroutine(Destroy());
+            
             grimReaper.InflictDamage();
+        }
+
+        IEnumerator Destroy()
+        {
+            yield return new WaitForSeconds(3);
+            Destroy(transform.parent.parent);
         }
 
         public override void StartUsingAbility()

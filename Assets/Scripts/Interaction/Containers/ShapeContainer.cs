@@ -33,17 +33,17 @@ namespace Interaction.Containers
                 ability.StartUsingAbility();
             }
 
-            int powerNeeded = 0;
-            AbilityTarget[] targets = GetComponentsInChildren<AbilityTarget>();
-            foreach (var target in targets)
-            {
-                if (!target.requiresElectricity) continue;
-                if (target.GetComponentsInChildren<IAbility>().Length == 0) continue;
-                powerNeeded++;
-            }
-            ElectricityAbility[] powerSources = GetComponentsInChildren<ElectricityAbility>();
-
-            _sufficientPower = powerSources.Length >= powerNeeded;
+        //    int powerNeeded = 0;
+        //    AbilityTarget[] targets = GetComponentsInChildren<AbilityTarget>();
+        //    foreach (var target in targets)
+        //    {
+        //        if (!target.requiresElectricity) continue;
+        //        if (target.GetComponentsInChildren<IAbility>().Length == 0) continue;
+        //        powerNeeded++;
+        //    }
+        //    ElectricityAbility[] powerSources = GetComponentsInChildren<ElectricityAbility>();
+//
+        //    _sufficientPower = powerSources.Length >= powerNeeded;
         }
 
         public void AddAcceleration( Vector2 force )
