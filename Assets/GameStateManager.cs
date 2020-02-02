@@ -16,6 +16,7 @@ public class GameStateManager : MonoBehaviour
                 break;
             case 1:
                 //ToDo Display GrimReaper at Top
+                //ToDo Destroy corpses
                 //ToDo Drop Cloud Shapes & Abilities
                 break;
             case 2:
@@ -33,9 +34,7 @@ public class GameStateManager : MonoBehaviour
 
     private void ShovelCorpses()
     {
-        Debug.Log(counter.GetCount());
         if (counter.GetCount() < 100) return;
-        Debug.Log(bulldozerAnimation);
         bulldozerAnimation.Play();
         _stateId++;
     
