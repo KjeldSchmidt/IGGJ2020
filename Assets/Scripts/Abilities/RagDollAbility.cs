@@ -18,7 +18,7 @@ namespace Abilities
             while (_isActive) {
                 yield return new WaitForSeconds(shootCooldown);
                 ShootRagDoll();
-                shootCooldown = shootCooldown * 0.8f;
+             //   shootCooldown = shootCooldown * 0.8f;
             }
         }
 
@@ -29,7 +29,10 @@ namespace Abilities
 
             foreach (Rigidbody2D rb in ragDoll.GetComponentsInChildren<Rigidbody2D>())
             {
-                rb.AddForce(shootForce, ForceMode2D.Impulse);
+                float xForce = shootForce.x;
+                float yForce = Random.Range(-2, 2);
+                rb.AddForce(new Vector2(xForce, yForce), ForceMode2D.Impulse);
+                shootForce *= 0.9f;
             }
         }
 

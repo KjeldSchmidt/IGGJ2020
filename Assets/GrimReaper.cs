@@ -24,7 +24,7 @@ public class GrimReaper : MonoBehaviour
             hpAnimation1.Play();
             level1Controller.FinishLevel();
         }
-        if (_hp == 2)
+        if (_hp == 0)
         {
             hpAnimation2.Play();
             _rigidbody2D.constraints = RigidbodyConstraints2D.None;

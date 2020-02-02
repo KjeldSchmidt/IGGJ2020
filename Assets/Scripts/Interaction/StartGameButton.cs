@@ -56,5 +56,10 @@ namespace Interaction
                 textMesh.color = targetColor;
             }
         }
+
+        public void Destroy()
+        {
+            Destroy(gameObject);
+        }
     }
 }

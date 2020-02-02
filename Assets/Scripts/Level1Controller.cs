@@ -5,12 +5,12 @@ using UnityEngine;
 public class Level1Controller : MonoBehaviour
 {
     [SerializeField] private CursorController cursorController = default;
-    [SerializeField] private GameObject startGameButton = default;
+    [SerializeField] private Animation hideStartButtonAnimation = default;
     [SerializeField] private GameObject reaperMover = default;
     [SerializeField] private Animation moveReaperToTop = default;
     [SerializeField] private GameObject level1ShapesContainer = default;
     [SerializeField] private GameObject level1AbilitiesContainer = default;
-    [SerializeField] private GameObject level1BlockTopScreen = default;
+    [SerializeField] private Animation MoveBlockUpperScreenAnimation = default;
     
     private GameStateManager _gameStateManager;
     
@@ -21,10 +21,10 @@ public class Level1Controller : MonoBehaviour
         
         //Move Reaper to Top
         reaperMover.SetActive(true);
-        level1BlockTopScreen.SetActive(true);
+        MoveBlockUpperScreenAnimation.Play("MoveInBlockUpperScreen");
         cursorController.maxCursorPosition = new Vector2(19, 5);
         moveReaperToTop.Play();
-        Destroy(startGameButton);
+        hideStartButtonAnimation.Play("HideStartButton");
         DestroyRagDolls();
         DropLevelShapes();
     }
@@ -47,7 +47,8 @@ public class Level1Controller : MonoBehaviour
     }
     
     public void FinishLevel()
-    {   level1BlockTopScreen.SetActive(false);
+    {
+        MoveBlockUpperScreenAnimation.Play("MoveOutBlockUpperScreen");
         _gameStateManager.FinishLevel1();
     }
 }
