@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using Interaction.Containers;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace Interaction.Snapping
@@ -10,6 +11,7 @@ namespace Interaction.Snapping
         private Vector2? _snapableOffset;
         private bool _isDragging;
         private ISnapForest _snapForest = new SnapForest();
+        private AudioSource _snapSound;
 
         public void OnTriggerStay2D(Collider2D other)
         {
@@ -130,6 +132,17 @@ namespace Interaction.Snapping
             //Deactivates used Snapables
             selected.SetSnapped();
             target.SetSnapped();
+
+            if (_snapSound == null) PrepareSnapSound( );
+            _snapSound.Play();
+        }
+
+        private void PrepareSnapSound( )
+        {
+            Debug.Log("Prepare snap sound!");
+            GameObject soundObj = new GameObject("Snap Sound Object");
+            _snapSound = soundObj.AddComponent<AudioSource>();
+            _snapSound.clip = Resources.Load("SoundEffects/Snap/SnapSound.wav") as AudioClip;
         }
         
         public bool IsDragging()
