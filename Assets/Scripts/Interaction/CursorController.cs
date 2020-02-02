@@ -16,7 +16,7 @@ namespace Interaction
         private void Awake()
         {
             Cursor.visible = false;
-            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.lockState = CursorLockMode.Confined;
             _mainCamera = Camera.main;
             _snappingController = new SnappingController();
             _abilityController = new AbilityController();
