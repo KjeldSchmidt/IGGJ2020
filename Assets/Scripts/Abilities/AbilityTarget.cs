@@ -27,6 +27,10 @@ namespace Abilities
             IShapeContainer shapeContainer = transform.parent.GetComponent<IShapeContainer>();
             shapeContainer.PrepareStart();
 
+            AudioSource snapSound = gameObject.AddComponent<AudioSource>();
+            snapSound.clip = Resources.Load("SoundEffects/Snap/SnapSound") as AudioClip;
+            snapSound.Play();
+
             return true;
         }
     }
