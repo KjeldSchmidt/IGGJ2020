@@ -60,7 +60,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
@@ -411,7 +411,8 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5480205862250280870, guid: 46a3d6f023237264d920119b5a4897cf, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 46a3d6f023237264d920119b5a4897cf, type: 3}
 --- !u!1 &9179130545631581376 stripped
 GameObject:
