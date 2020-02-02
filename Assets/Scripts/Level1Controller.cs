@@ -1,6 +1,7 @@
 ﻿using Interaction;
 using Spawning;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class Level1Controller : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Level1Controller : MonoBehaviour
     [SerializeField] private Animation moveReaperToTop = default;
     [SerializeField] private GameObject level1ShapesContainer = default;
     [SerializeField] private GameObject level1AbilitiesContainer = default;
-    [SerializeField] private Animation MoveBlockUpperScreenAnimation = default;
+    [SerializeField] private Animation moveBlockUpperScreenAnimation = default;
     
     private GameStateManager _gameStateManager;
     
@@ -21,7 +22,7 @@ public class Level1Controller : MonoBehaviour
         
         //Move Reaper to Top
         reaperMover.SetActive(true);
-        MoveBlockUpperScreenAnimation.Play("MoveInBlockUpperScreen");
+        moveBlockUpperScreenAnimation.Play("MoveInBlockUpperScreen");
         cursorController.maxCursorPosition = new Vector2(19, 5);
         moveReaperToTop.Play();
         hideStartButtonAnimation.Play("HideStartButton");
@@ -48,7 +49,7 @@ public class Level1Controller : MonoBehaviour
     
     public void FinishLevel()
     {
-        MoveBlockUpperScreenAnimation.Play("MoveOutBlockUpperScreen");
+        moveBlockUpperScreenAnimation.Play("MoveOutBlockUpperScreen");
         _gameStateManager.FinishLevel1();
     }
 }

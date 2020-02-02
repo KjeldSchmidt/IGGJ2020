@@ -991,7 +991,7 @@ MonoBehaviour:
   moveReaperToTop: {fileID: 1524983734}
   level1ShapesContainer: {fileID: 514431416}
   level1AbilitiesContainer: {fileID: 1227998377}
-  MoveBlockUpperScreenAnimation: {fileID: 852546940}
+  moveBlockUpperScreenAnimation: {fileID: 0}
 --- !u!4 &123398241 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8203641837547996401, guid: 7597324492a47bb4a9e03d92895968d3,
@@ -1436,7 +1436,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195394630}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6, y: 3, z: 0}
+  m_LocalPosition: {x: -1.6, y: 3, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1682280425}
@@ -3572,7 +3572,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 381169094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6, y: 3, z: 0}
+  m_LocalPosition: {x: -1.6, y: 3, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1682280425}
@@ -13527,33 +13527,24 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!61 &1482008293
-BoxCollider2D:
+  m_IsActive: 1
+--- !u!111 &1482008293
+Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482008292}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.07116699, y: 4.715663}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 19.041206, y: 8.4030285}
-  m_EdgeRadius: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 7400000, guid: 4f1e2ffb79c85624592c01fd731c5006, type: 2}
+  - {fileID: 7400000, guid: 4e3e63bda52895e43be6ae76b821885c, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!4 &1482008294
 Transform:
   m_ObjectHideFlags: 0
@@ -13562,7 +13553,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1482008292}
   m_LocalRotation: {x: -0, y: -0, z: -0.70710576, w: 0.70710784}
-  m_LocalPosition: {x: 15.59, y: 9.21, z: -5}
+  m_LocalPosition: {x: 15.59, y: 20, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 536180536}
@@ -16420,8 +16411,8 @@ MonoBehaviour:
   moveReaperToRight: {fileID: 1524983734}
   level2ShapesContainer: {fileID: 1433468422}
   level2AbilitiesContainer: {fileID: 770131256}
-  level2BlockRightScreen: {fileID: 1482008292}
   raiseWallAnimation: {fileID: 808483702}
+  moveRightScreenBlockAnimation: {fileID: 1482008293}
 --- !u!4 &1781957561
 Transform:
   m_ObjectHideFlags: 0

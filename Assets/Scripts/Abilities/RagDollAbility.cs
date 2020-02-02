@@ -10,7 +10,7 @@ namespace Abilities
         [SerializeField] private Vector2 shootForce = default;
         [SerializeField] private float shootCooldown = default;
         [SerializeField] private Transform spawnPosition = default;
-        
+
         private bool _isActive;
 
         IEnumerator StartRagDollCanon()
@@ -18,7 +18,7 @@ namespace Abilities
             while (_isActive) {
                 yield return new WaitForSeconds(shootCooldown);
                 ShootRagDoll();
-             //   shootCooldown = shootCooldown * 0.8f;
+                shootCooldown = shootCooldown * 0.9f;
             }
         }
 
@@ -32,7 +32,6 @@ namespace Abilities
                 float xForce = shootForce.x;
                 float yForce = Random.Range(-2, 2);
                 rb.AddForce(new Vector2(xForce, yForce), ForceMode2D.Impulse);
-                shootForce *= 0.9f;
             }
         }
 
