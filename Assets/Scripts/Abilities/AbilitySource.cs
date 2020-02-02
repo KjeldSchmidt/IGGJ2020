@@ -17,7 +17,7 @@ namespace Abilities
             _collider2D = GetComponent<Collider2D>();
         }
 
-        private void OnTriggerEnter2D(Collider2D other)
+        private void OnTriggerStay2D(Collider2D other)
         {
             AbilityTarget abilityTarget = other.GetComponent<AbilityTarget>();
             if (!abilityTarget) return;
