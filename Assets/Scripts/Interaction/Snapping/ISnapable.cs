@@ -11,5 +11,6 @@ namespace Interaction.Snapping
         IShapeContainer ShapeContainer { get; }
         List<ISnapPoint> GetSnapPoints();
         Transform GetBlockContainerTransform();
+        void SetIsTrigger(bool val);
     }
 }

@@ -56,8 +56,8 @@ namespace Abilities
         {
             if (!_abilityTarget) return;
             
-            _abilityTarget.AssignAbility(abilityPrefab); 
-            Destroy(gameObject);
+            bool success = _abilityTarget.AssignAbility(abilityPrefab); 
+            if(success) Destroy(gameObject);
         }
         
     }

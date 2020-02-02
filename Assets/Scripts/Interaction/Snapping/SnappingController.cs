@@ -8,6 +8,7 @@ namespace Interaction.Snapping
     {
         private ISnapable _snapable;
         private Vector2? _snapableOffset;
+        private bool _isDragging;
 
         public void OnTriggerStay2D(Collider2D other)
         {
@@ -48,8 +49,13 @@ namespace Interaction.Snapping
                 _snapableOffset = _snapable.GetBlockContainerTransform().position - mouseTransform.position;
             }
 
+            foreach (ISnapable snapable in _snapable.ShapeContainer.Transform.GetComponentsInChildren<ISnapable>())
+            {
+                snapable.SetIsTrigger(true);
+            }
+            _isDragging = true;
             Vector2? targetPos = mouseTransform.position + _snapableOffset;
-            _snapable.GetBlockContainerTransform().position =  (Vector3) targetPos;
+            _snapable.GetBlockContainerTransform().position = (Vector3) targetPos;
             
         }
     
@@ -60,7 +66,10 @@ namespace Interaction.Snapping
             foreach (ISnapable snapable in _snapable.ShapeContainer.Transform.GetComponentsInChildren<ISnapable>())
             {
                 TrySnap(snapable);
+                _snapable.SetIsTrigger(false);
             }
+            
+            _isDragging = false;
             _snapableOffset = null;
             _snapable = null;
         }
@@ -116,5 +125,9 @@ namespace Interaction.Snapping
             target.SetSnapped();
         }
         
+        public bool IsDragging()
+        {
+            return _isDragging;
+        }
     }
 }

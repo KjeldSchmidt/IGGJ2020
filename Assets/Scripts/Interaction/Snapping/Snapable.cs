@@ -9,10 +9,12 @@ namespace Interaction.Snapping
     [RequireComponent(typeof(SpriteRenderer))]
     public class Snapable: Draggable, ISnapable
     {
-        [SerializeField] private List<SnapPoint> snapables;
-
         public Transform Transform => transform;
         public IShapeContainer ShapeContainer => transform.parent.GetComponent<IShapeContainer>();
+        
+        [SerializeField] private List<SnapPoint> snapables;
+
+        private Collider2D _collider2D;
 
         public override void Highlight()
         {
@@ -26,7 +28,12 @@ namespace Interaction.Snapping
         {
             return transform.parent;
         }
-        
+
+        public void SetIsTrigger(bool val)
+        {
+            GetComponent<Collider2D>().isTrigger = val;
+        }
+
         public List<ISnapPoint> GetSnapPoints()
         {
             //Todo make pretty

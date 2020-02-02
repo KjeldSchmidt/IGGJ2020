@@ -8,5 +8,6 @@ namespace Interaction.Snapping
         void OnTriggerExit2D(Collider2D other);
         void MouseDown(Transform mouseTransform);
         void MouseUp();
+        bool IsDragging();
     }
 }

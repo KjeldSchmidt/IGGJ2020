@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Abilities
 {
-    public class MoveSingleDirectionAbility : AbstractAbility
+    public class MoveAbility : AbstractAbility
     {
         [SerializeField] private Vector2 movementDirection;
         [SerializeField] private float acceleration = 0.1f;

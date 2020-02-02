@@ -56,9 +56,18 @@ namespace Interaction
 
         private void MouseDown()
         {
-            _abilityController.MouseDown(transform);
-            if (_abilityController.IsDragging()) return;
+            if (_abilityController.IsDragging())
+            {
+                _abilityController.MouseDown(transform);
+                return;
+            }
+            if (_snappingController.IsDragging())
+            {
+                _snappingController.MouseDown(transform);
+                return;
+            }
             
+            _abilityController.MouseDown(transform);
             _snappingController.MouseDown(transform);
         }
     
