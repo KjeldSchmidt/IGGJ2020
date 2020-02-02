@@ -9,6 +9,7 @@ namespace Interaction.Snapping
         private ISnapable _snapable;
         private Vector2? _snapableOffset;
         private bool _isDragging;
+        private ISnapForest _snapForest = new SnapForest();
 
         public void OnTriggerStay2D(Collider2D other)
         {
@@ -119,6 +120,11 @@ namespace Interaction.Snapping
             
             //Destroy old Container
             selectedShapeContainer.GetComponent<IShapeContainer>().Destroy();
+            
+            _snapForest.Join(
+                selected.GetTransform().parent.GetComponent<Snapable>(),
+                target.GetTransform().parent.GetComponent<Snapable>()
+            );
             
             //Deactivates used Snapables
             selected.SetSnapped();
