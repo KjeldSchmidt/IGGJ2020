@@ -11,7 +11,7 @@ namespace Spawning
         {
             if (_count >= 100) return;
 
-            _count += 2;
+            _count += 3;
             if (_count > 100) _count = 100;
             textMeshCounter.text = _count.ToString();
         }

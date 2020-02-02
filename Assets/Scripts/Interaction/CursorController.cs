@@ -11,9 +11,12 @@ namespace Interaction
         private ISnappingController _snappingController;
         private IAbilityController _abilityController;
 
+        [SerializeField] private Vector2 maxCursorPosition;
+
         private void Awake()
         {
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Confined;
             _mainCamera = Camera.main;
             _snappingController = new SnappingController();
             _abilityController = new AbilityController();
@@ -23,6 +26,12 @@ namespace Interaction
         {
             _snappingController.OnTriggerStay2D(other);
             _abilityController.OnTriggerStay2D(other);
+
+            StartButton startButton = other.GetComponent<StartButton>();
+            if (startButton && Input.GetMouseButtonDown(0))
+            {
+                startButton.StartAbilities();
+            }
         }
 
         private void OnTriggerExit2D(Collider2D other)
@@ -51,6 +60,8 @@ namespace Interaction
         {
             Vector3 pos = _mainCamera.ScreenToWorldPoint(Input.mousePosition);
             pos.z = -9;
+            if (pos.x > maxCursorPosition.x) pos.x = maxCursorPosition.x;
+            if (pos.y > maxCursorPosition.y) pos.y = maxCursorPosition.y;
             transform.position = pos;
         }
 
@@ -69,6 +80,7 @@ namespace Interaction
             
             _abilityController.MouseDown(transform);
             _snappingController.MouseDown(transform);
+            
         }
     
         private void MouseUp()

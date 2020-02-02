@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Abilities;
 using Interaction.Containers;
 using UnityEngine;
@@ -13,7 +11,7 @@ public class StartButton : MonoBehaviour
     private AbilitySource _activeAbilitySource;
     private bool started;
     
-    private void OnMouseDown()
+    public void StartAbilities()
     { 
         if (started) return;
         started = true;

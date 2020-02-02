@@ -13,5 +13,11 @@ namespace Bombs
             bomb.transform.position = spawnPosition.position;
             bomb.transform.parent = null;
         }
+
+        public void DestroyTractor()
+        {
+            Destroy(gameObject);
+        }
+        
     }
 }

@@ -1,7 +1,11 @@
-﻿using UnityEngine;
+﻿using Spawning;
+using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Level1Controller : MonoBehaviour
 {
+    [SerializeField] private GameObject startGameButton;
+    [SerializeField] private GameObject reaperMover;
     [SerializeField] private Animation moveReaperToTop;
     [SerializeField] private GameObject level1ShapesContainer;
     [SerializeField] private GameObject level1AbilitiesContainer;
@@ -14,14 +18,22 @@ public class Level1Controller : MonoBehaviour
         _gameStateManager = gameStateManager;
         
         //Move Reaper to Top
+        reaperMover.SetActive(true);
         moveReaperToTop.Play();
+        Destroy(startGameButton);
         DestroyRagDolls();
         DropLevelShapes();
     }
 
     private void DestroyRagDolls()
     {
-        //todo destroy ragdolls
+        foreach (GameObject go in gameObject.scene.GetRootGameObjects())
+        {
+            RagDoll ragDoll = go.GetComponent<RagDoll>();
+            if (!ragDoll) continue;
+            
+            Destroy(ragDoll.gameObject);
+        }
     }
 
     private void DropLevelShapes()
